@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProAug — We Don't Send Engineers to Perform. We Engineer Performance. | Captiv</title>
+<meta name="description" content="ProAug by Captiv is not staff augmentation. We embed accountable delivery teams inside institutions — taking ownership of outcomes, not filling headcount. We don't send engineers to perform. We engineer performance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --teal:#0B6B54;--teal-dark:#084D3B;--teal-mid:#1A9E75;
+  --teal-light:#E6F4EF;--teal-xlight:#F2FAF7;
+  --navy:#0C1B2E;--navy-mid:#162840;
+  --white:#FFFFFF;--off-white:#F9F8F5;--cream:#F3F1EC;
+  --border:#E4E0D8;--border-light:#EDE9E2;
+  --text-primary:#0C1B2E;--text-secondary:#4B5563;--text-muted:#8B97A4;
+  --font-display:"Cormorant Garamond",serif;--font-body:"Figtree",sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{padding-top:62px;background:var(--white);color:var(--text-primary);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 4rem;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(11,107,84,0.1);box-shadow:0 2px 16px rgba(0,0,0,0.05);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+.nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center;margin:0;padding:0;}
+.nav-links>li{position:relative;}
+.nav-links a{color:#4B5563;text-decoration:none;font-size:0.81rem;font-weight:400;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:#0B6B54;font-weight:600;}
+.nav-dropdown{position:relative;}
+.nav-sub{display:none;position:absolute;top:calc(100% + 0.6rem);left:0;background:#fff;border:1px solid #EDE9E2;border-top:2px solid #0B6B54;min-width:220px;list-style:none;z-index:500;box-shadow:0 12px 40px rgba(0,0,0,0.1);}
+.nav-sub li a{display:block;padding:0.68rem 1.35rem;font-size:0.78rem;color:#4B5563;border-bottom:1px solid #EDE9E2;transition:all 0.15s;}
+.nav-sub li:last-child a{border-bottom:none;}
+.nav-sub li a:hover{background:#F2FAF7;color:#0B6B54;padding-left:1.65rem;}
+.nav-dropdown:hover .nav-sub{display:block;}
+.nav-cta{background:#0B6B54;color:#fff!important;padding:0.55rem 1.35rem;font-size:0.77rem;font-weight:600;text-decoration:none;letter-spacing:0.07em;transition:all 0.2s;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.nav-cta:hover{background:#084D3B;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:#0C1B2E;transition:all 0.25s;}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* SHARED */
+.sec{padding:7rem 4rem;}
+.sec-inner{max-width:1280px;margin:0 auto;}
+.sec-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.1rem;}
+.sec-kicker::before{content:"";width:1.75rem;height:2px;background:var(--teal);}
+.sec-kicker.light{color:var(--teal-mid);}
+.sec-kicker.light::before{background:var(--teal-mid);}
+.sec-heading{font-family:var(--font-display);font-size:clamp(2.6rem,3.8vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-0.01em;color:var(--navy);}
+.sec-heading em{font-style:italic;font-weight:400;color:var(--teal);}
+.sec-heading.light{color:var(--white);}
+.sec-heading.light em{color:var(--teal-mid);}
+.btn-solid{background:var(--teal);color:var(--white);padding:0.9rem 2rem;font-size:0.875rem;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;display:inline-block;}
+.btn-solid:hover{background:var(--teal-dark);transform:translateY(-1px);}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.35);color:var(--white);padding:0.9rem 2rem;font-size:0.875rem;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--teal-mid);background:rgba(26,158,117,0.1);}
+.btn-white{background:var(--white);color:var(--teal);padding:1rem 2.5rem;font-size:0.875rem;font-weight:600;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;display:inline-block;text-transform:uppercase;margin-right:1rem;}
+.btn-white:hover{background:var(--off-white);transform:translateY(-2px);}
+
+/* HERO */
+.pg-hero{min-height:92vh;display:flex;align-items:center;padding:9rem 4rem 5rem;position:relative;overflow:hidden;background:var(--navy);}
+.pg-hero-img{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80");background-size:cover;background-position:center top;opacity:0.11;z-index:0;}
+.pg-hero-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.07) 1px,transparent 1px);background-size:36px 36px;z-index:0;}
+.pg-hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(12,27,46,0.97) 50%,rgba(12,27,46,0.72));z-index:1;}
+.pg-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:58% 42%;gap:4rem;align-items:center;position:relative;z-index:2;}
+.pg-hero-tag{font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.pg-hero-tag::before{content:"";display:block;width:2rem;height:2px;background:var(--teal-mid);}
+.pg-hero-headline{font-family:var(--font-display);font-size:clamp(3rem,5vw,5.2rem);font-weight:700;line-height:1.03;color:var(--white);margin-bottom:1.5rem;letter-spacing:-0.015em;}
+.pg-hero-headline em{font-style:italic;font-weight:400;color:var(--teal-mid);}
+.pg-hero-rule{width:3rem;height:2px;background:var(--teal-mid);margin-bottom:1.5rem;}
+.pg-hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:1.5rem;max-width:540px;}
+.pg-hero-doctrine{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:2.5rem;max-width:500px;}
+.pg-hero-doctrine em{font-style:italic;color:var(--teal-mid);}
+.pg-hero-btns{display:flex;gap:1.25rem;flex-wrap:wrap;}
+
+/* HERO STAT CARD */
+.stat-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:2.5rem;position:relative;}
+.stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal-mid);}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin-bottom:1.5rem;}
+.stat-cell{background:rgba(255,255,255,0.02);padding:1.5rem 1.25rem;cursor:default;}
+.stat-n{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--teal-mid);line-height:1;margin-bottom:0.3rem;}
+.stat-l{font-size:0.65rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+.stat-note{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.75;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.06);}
+.stat-note strong{color:rgba(255,255,255,0.6);font-weight:500;}
+
+/* MARQUEE */
+.mq-bar{background:var(--teal);overflow:hidden;}
+.mq-inner{display:flex;animation:mqScroll 36s linear infinite;white-space:nowrap;}
+.mq-inner:hover{animation-play-state:paused;}
+.mq-item{font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);padding:0.85rem 2.5rem;border-right:1px solid rgba(255,255,255,0.15);flex-shrink:0;transition:color 0.2s;}
+.mq-item:hover{color:var(--white);}
+@keyframes mqScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* DOCTRINE STATEMENT */
+.doctrine-sec{background:var(--navy);position:relative;overflow:hidden;}
+.doctrine-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.06) 1px,transparent 1px);background-size:28px 28px;}
+.doctrine-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+.doctrine-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);margin-top:3.5rem;}
+.doctrine-card{background:var(--navy);padding:3rem 2.5rem;position:relative;cursor:default;transition:background 0.25s;}
+.doctrine-card:hover{background:var(--navy-mid);}
+.doctrine-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.25s;}
+.doctrine-card:hover::before{background:var(--teal-mid);}
+.doctrine-x{font-family:var(--font-display);font-size:0.82rem;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.18);text-transform:uppercase;margin-bottom:0.6rem;text-decoration:line-through;}
+.doctrine-y{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1rem;}
+.doctrine-y em{font-style:italic;color:var(--teal-mid);font-weight:400;}
+.doctrine-desc{font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.8;}
+
+/* PROBLEM SECTION */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.prob-right{display:flex;flex-direction:column;gap:1px;background:var(--border-light);}
+.prob-item{background:var(--white);padding:1.75rem 2rem;display:flex;align-items:flex-start;gap:1.5rem;transition:all 0.2s;border-left:3px solid transparent;}
+.prob-item:hover{background:var(--teal-xlight);border-left-color:var(--teal);}
+.prob-icon{font-size:1.3rem;margin-top:0.1rem;flex-shrink:0;}
+.prob-title{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.prob-desc{font-size:0.8rem;font-weight:300;color:var(--text-secondary);line-height:1.7;}
+
+/* VS TABLE */
+.vs-sec{background:var(--off-white);}
+.vs-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4rem;}
+.vs-intro p{font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.9;margin-top:1.25rem;}
+.vs-wrap{overflow-x:auto;}
+.vs-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+.vs-table th{font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 1.5rem;text-align:left;border-bottom:2px solid var(--border);white-space:nowrap;}
+.vs-table th:first-child{color:var(--text-muted);background:var(--white);}
+.vs-table th.proaug-col{background:var(--teal);color:var(--white);text-align:center;}
+.vs-table th.other-col{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;}
+.vs-table td{padding:1rem 1.5rem;border-bottom:1px solid var(--border-light);vertical-align:middle;}
+.vs-table td:first-child{font-size:0.8rem;font-weight:500;color:var(--text-primary);background:var(--white);}
+.vs-table td.proaug-val{background:#F2FAF7;text-align:center;font-weight:500;color:var(--teal-dark);}
+.vs-table td.other-val{background:var(--white);text-align:center;color:var(--text-secondary);}
+.vs-table tr:last-child td{border-bottom:none;}
+.vs-table tr:hover td{filter:brightness(0.97);}
+.vs-cat td{background:var(--off-white)!important;color:var(--text-muted)!important;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;}
+.tick{color:var(--teal);font-size:1rem;}
+.cross{color:#DC2626;font-size:0.9rem;}
+.partial{color:#B45309;font-size:0.85rem;}
+.vs-note{font-size:0.72rem;font-weight:300;color:var(--text-muted);margin-top:1.5rem;line-height:1.7;padding:1.25rem;background:var(--white);border-left:3px solid var(--border);}
+
+/* ENGAGEMENT MODELS */
+.model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem;}
+.model-card{background:var(--white);padding:2.5rem 2rem;border-top:3px solid transparent;transition:all 0.3s;cursor:default;}
+.model-card:hover{border-top-color:var(--teal);background:var(--teal-xlight);transform:translateY(-3px);box-shadow:0 12px 32px rgba(11,107,84,0.08);}
+.model-num{font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem;}
+.model-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:0.5rem;}
+.model-title em{font-style:italic;font-weight:400;color:var(--teal);}
+.model-sub{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.model-desc{font-size:0.82rem;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;}
+.model-punch{font-size:0.78rem;font-style:italic;color:var(--teal-dark);border-left:2px solid var(--teal-light);padding-left:0.75rem;line-height:1.6;}
+.model-roles{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:1.25rem;}
+.role-tag{font-size:0.58rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border:1px solid var(--border-light);color:var(--text-muted);}
+
+/* IMAGE BREAK */
+.imgbreak{position:relative;height:460px;overflow:hidden;}
+.imgbreak img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s ease;}
+.imgbreak:hover img{transform:scale(1.03);}
+.imgbreak-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(12,27,46,0.94) 40%,rgba(12,27,46,0.25));}
+.imgbreak-content{position:absolute;top:50%;left:4rem;transform:translateY(-50%);max-width:600px;}
+.imgbreak-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;}
+.imgbreak-kicker::before{content:"";display:block;width:1.75rem;height:2px;background:var(--teal-mid);}
+.imgbreak-headline{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;color:var(--white);line-height:1.08;margin-bottom:1rem;}
+.imgbreak-headline em{font-style:italic;font-weight:400;color:var(--teal-mid);}
+.imgbreak-sub{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.58);line-height:1.9;}
+
+/* DEPLOYMENT CARDS */
+.dark-sec{background:var(--navy);position:relative;overflow:hidden;}
+.dark-sec-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.06) 1px,transparent 1px);background-size:32px 32px;}
+.deploy-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);margin-top:3.5rem;}
+.deploy-card{background:var(--navy);padding:2.5rem 2rem;transition:all 0.25s;border-top:2px solid transparent;cursor:default;}
+.deploy-card:hover{background:var(--navy-mid);border-top-color:var(--teal-mid);}
+.deploy-geo{font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-mid);opacity:0.7;margin-bottom:0.6rem;}
+.deploy-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.5rem;}
+.deploy-title em{font-style:italic;color:var(--teal-mid);font-weight:400;}
+.deploy-desc{font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.8;margin-bottom:1rem;}
+.deploy-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.dtag{font-size:0.57rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.55rem;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);}
+
+/* INDUSTRY INSIGHTS */
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem;}
+.insight-card{background:var(--white);padding:2.5rem 2rem;border-top:3px solid transparent;transition:all 0.3s;cursor:default;}
+.insight-card:hover{background:var(--off-white);border-top-color:var(--teal);transform:translateY(-3px);box-shadow:0 12px 32px rgba(11,107,84,0.08);}
+.insight-type{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.65rem;display:inline-block;margin-bottom:1rem;}
+.insight-type.report{background:#EEF4FF;color:#1E40AF;}
+.insight-type.whitepaper{background:var(--teal-light);color:var(--teal);}
+.insight-type.research{background:#FFF8E6;color:#B45309;}
+.insight-type.survey{background:#FFF0F0;color:#B91C1C;}
+.insight-source{font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.5rem;}
+.insight-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:0.75rem;}
+.insight-stat{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--teal);line-height:1;margin-bottom:0.2rem;}
+.insight-stat-l{font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);}
+.insight-excerpt{font-size:0.8rem;font-weight:300;color:var(--text-secondary);line-height:1.75;margin-top:1rem;margin-bottom:1rem;}
+.insight-link{font-size:0.72rem;font-weight:600;color:var(--teal);text-decoration:none;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.2s;}
+.insight-link:hover{gap:0.55rem;}
+
+/* READING SECTION */
+.reading-sec{background:var(--navy);position:relative;overflow:hidden;}
+.reading-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.06) 1px,transparent 1px);background-size:32px 32px;}
+.reading-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);margin-top:3.5rem;}
+.reading-card{background:var(--navy);padding:2.5rem 2rem;transition:all 0.25s;border-left:3px solid transparent;cursor:default;}
+.reading-card:hover{background:var(--navy-mid);border-left-color:var(--teal-mid);}
+.reading-label{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:0.5rem;opacity:0.7;}
+.reading-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:0.6rem;}
+.reading-by{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;}
+.reading-excerpt{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.75;}
+.reading-pill{display:inline-block;margin-top:1rem;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.65rem;background:rgba(26,158,117,0.12);color:var(--teal-mid);}
+
+/* PROCESS STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:3.5rem;}
+.step-card{background:var(--white);padding:2.5rem 2rem;border-top:2px solid transparent;transition:all 0.25s;cursor:default;}
+.step-card:hover{border-top-color:var(--teal);background:var(--teal-xlight);transform:translateY(-3px);}
+.step-n{font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:rgba(11,107,84,0.07);line-height:1;margin-bottom:1rem;}
+.step-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:0.75rem;}
+.step-title em{font-style:italic;color:var(--teal);font-weight:400;}
+.step-desc{font-size:0.8rem;font-weight:300;color:var(--text-secondary);line-height:1.75;}
+
+/* CTA */
+.cta-band{background:var(--teal);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.cta-band-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:32px 32px;}
+.cta-inner{max-width:720px;margin:0 auto;position:relative;z-index:1;}
+.cta-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;display:block;}
+.cta-heading{font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:1rem;letter-spacing:-0.015em;}
+.cta-heading em{font-style:italic;font-weight:400;}
+.cta-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:2.5rem;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1),transform 0.75s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:0.08s;}.delay-2{transition-delay:0.16s;}.delay-3{transition-delay:0.24s;}
+
+/* FOOTER */
+footer{background:#0C1B2E;padding:5rem 4rem 2rem;border-top:3px solid #0B6B54;}
+.footer-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,0.07);}
+.footer-brand{display:flex;flex-direction:column;}
+.footer-desc{font-size:0.77rem;font-weight:300;color:rgba(255,255,255,0.3);line-height:1.9;max-width:252px;margin-bottom:1.25rem;}
+.footer-tag{font-size:0.59rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#1A9E75;}
+.footer-col h4{font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:1.35rem;}
+.footer-col ul{list-style:none;padding:0;margin:0;}
+.footer-col li{margin-bottom:0.65rem;}
+.footer-col a{font-size:0.79rem;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{max-width:1280px;margin:0 auto;padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;}
+.footer-bottom p{font-size:0.65rem;font-weight:300;color:rgba(255,255,255,0.14);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav{padding:0.85rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:#fff;border-bottom:1px solid #EDE9E2;z-index:999;padding:0.5rem 0;max-height:80vh;overflow-y:auto;box-shadow:0 8px 28px rgba(0,0,0,0.12);}
+  .nav-links.open>li>a{display:block;padding:0.85rem 1.75rem;font-size:0.9rem;border-bottom:1px solid #EDE9E2;}
+  .nav-links.open .nav-sub{display:block!important;position:static;box-shadow:none;border:none;background:#F9F8F5;padding-left:1rem;border-top:none;}
+  .hamburger{display:flex;}
+  .nav-cta{display:none;}
+  .sec{padding:5rem 1.5rem;}
+  .pg-hero{padding:7rem 1.5rem 4rem;}
+  .pg-hero-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .prob-grid,.vs-intro{grid-template-columns:1fr;gap:3rem;}
+  .doctrine-grid,.model-grid,.steps-grid{grid-template-columns:1fr;}
+  .deploy-grid,.reading-grid,.insight-grid{grid-template-columns:1fr;}
+  .imgbreak-content{left:1.5rem;right:1.5rem;max-width:100%;}
+  .cta-band{padding:5rem 1.5rem;}
+  footer{padding:4rem 1.5rem 2rem;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr;}}
+@media(min-width:1101px){.hamburger{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><img src="data:image/png;base64,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" alt="Captiv — Excellence. Delivered." style="height:38px;width:auto;display:block;"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown">
+      <a href="index.html#engines">Engines ▾</a>
+      <ul class="nav-sub">
+        <li><a href="skyverse.html">SkyVerse</a></li>
+        <li><a href="aion.html">AION</a></li>
+        <li><a href="optima360.html">Optima 360</a></li>
+        <li><a href="soniclynk.html">SonicLynk</a></li>
+        <li><a href="qlens.html">QLens</a></li>
+        <li><a href="proaug.html" class="active">ProAug</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="industries-government.html">Industries ▾</a>
+      <ul class="nav-sub">
+        <li><a href="industries-government.html">Government &amp; Smart City</a></li>
+        <li><a href="industries-banking.html">Banking &amp; Fintech</a></li>
+        <li><a href="industries-enterprise.html">Manufacturing &amp; Enterprise</a></li>
+      </ul>
+    </li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Build with Captiv</a>
+</nav>
+
+<!-- HERO -->
+<section class="pg-hero">
+  <div class="pg-hero-img"></div>
+  <div class="pg-hero-overlay"></div>
+  <div class="pg-hero-bg"></div>
+  <div class="pg-hero-inner">
+    <div style="animation:fadeUp 0.7s 0.1s ease both;">
+      <div class="pg-hero-tag">Engine 06 · ProAug · Execution &amp; Delivery</div>
+      <h1 class="pg-hero-headline">We don't send engineers<br>to perform. We<br><em>engineer performance.</em></h1>
+      <div class="pg-hero-rule"></div>
+      <p class="pg-hero-sub">ProAug is not staff augmentation. We embed accountable delivery teams inside institutions — teams who own the outcome, not the timesheet. Every ProAug engagement is measured by what the system does, not how many hours were logged.</p>
+      <p class="pg-hero-doctrine">We are not adding staff.<br><em>We are taking ownership.</em></p>
+      <div class="pg-hero-btns">
+        <a href="contact.html" class="btn-solid">Engage ProAug</a>
+        <a href="#model" class="btn-ghost">See the Model</a>
+      </div>
+    </div>
+    <div class="stat-card" style="animation:fadeUp 0.7s 0.2s ease both;">
+      <div class="stat-grid">
+        <div class="stat-cell"><div class="stat-n">4</div><div class="stat-l">Continents · Active engagements</div></div>
+        <div class="stat-cell"><div class="stat-n">Full</div><div class="stat-l">Teams · PM to QA · Every role</div></div>
+        <div class="stat-cell"><div class="stat-n">SLA</div><div class="stat-l">Backed · We own the outcome</div></div>
+        <div class="stat-cell"><div class="stat-n">Long</div><div class="stat-l">Term contracts · Not day rates</div></div>
+      </div>
+      <p class="stat-note">Embedded with <strong>Vertiv</strong> (Fortune 500, 25-week enterprise delivery) and <strong>Philips</strong> (CIO-level relationship, global healthcare technology) — and across banking, government and enterprise clients across India, Middle East, Africa and the Americas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-bar">
+  <div class="mq-inner">
+    <span class="mq-item">Outcome Ownership</span><span class="mq-item">Embedded Delivery</span><span class="mq-item">Full Team Deployment</span><span class="mq-item">Project Manager</span><span class="mq-item">Solution Architect</span><span class="mq-item">Business Analyst</span><span class="mq-item">Application Developers</span><span class="mq-item">UI/UX Engineering</span><span class="mq-item">QA &amp; Testing</span><span class="mq-item">SQL Developer</span><span class="mq-item">Change Management</span><span class="mq-item">SLA-Backed Performance</span><span class="mq-item">Institutional Knowledge</span>
+    <span class="mq-item">Outcome Ownership</span><span class="mq-item">Embedded Delivery</span><span class="mq-item">Full Team Deployment</span><span class="mq-item">Project Manager</span><span class="mq-item">Solution Architect</span><span class="mq-item">Business Analyst</span><span class="mq-item">Application Developers</span><span class="mq-item">UI/UX Engineering</span><span class="mq-item">QA &amp; Testing</span><span class="mq-item">SQL Developer</span><span class="mq-item">Change Management</span><span class="mq-item">SLA-Backed Performance</span><span class="mq-item">Institutional Knowledge</span>
+  </div>
+</div>
+
+<!-- DOCTRINE: WHAT WE ARE NOT vs WHAT WE ARE -->
+<section class="doctrine-sec sec">
+  <div class="doctrine-bg"></div>
+  <div class="doctrine-inner">
+    <div style="text-align:center;max-width:680px;margin:0 auto;">
+      <div class="sec-kicker light" style="justify-content:center;">The ProAug doctrine</div>
+      <h2 class="sec-heading light">The staffing industry sends people.<br><em>ProAug engineers outcomes.</em></h2>
+      <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.9;margin-top:1.25rem;">There is a fundamental difference between deploying a body into a role and taking ownership of what that role must produce. ProAug was built on this distinction. Every engagement, every team, every SLA is built around outcomes — not time.</p>
+    </div>
+    <div class="doctrine-grid">
+      <div class="doctrine-card reveal">
+        <div class="doctrine-x">Not headcount augmentation</div>
+        <div class="doctrine-y">Outcome<br><em>ownership</em></div>
+        <p class="doctrine-desc">A staffing agency fills a role description. ProAug owns the outcome attached to that role. Our engineers are accountable to what gets delivered — not to how many hours they logged, how many tickets they closed, or how smoothly they integrated into your stand-ups. The system performs. That's the measure.</p>
+      </div>
+      <div class="doctrine-card reveal delay-1">
+        <div class="doctrine-x">Not temporary capacity</div>
+        <div class="doctrine-y">Sustained<br><em>performance</em></div>
+        <p class="doctrine-desc">Staffing fills a gap. ProAug prevents one from forming. Systems degrade when the people who built them leave. ProAug stays — continuously improving, monitoring and upgrading the system so performance doesn't erode over time. Long-term contracts are not a commercial preference. They're a delivery requirement.</p>
+      </div>
+      <div class="doctrine-card reveal delay-2">
+        <div class="doctrine-x">Not a vendor relationship</div>
+        <div class="doctrine-y">Embedded<br><em>accountability</em></div>
+        <p class="doctrine-desc">Vendors charge for time and disclaim responsibility for outcomes. ProAug operates inside your organisation as part of the delivery chain — with SLAs, governance checkpoints and performance metrics that make accountability visible. Captiv's reputation is on the line with every engagement. We treat it that way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM WITH STAFFING INDUSTRY -->
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="prob-grid">
+      <div>
+        <div class="sec-kicker">The industry problem</div>
+        <h2 class="sec-heading">Staffing fills seats.<br><em>Seats don't deliver systems.</em></h2>
+        <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.9;margin-top:1.5rem;">The global IT staffing industry is worth over $490 billion (Staffing Industry Analysts, 2024) — and produces consistently disappointing outcomes. McKinsey estimates that 70% of large-scale technology transformations fail to meet their objectives. A significant contributing factor: teams assembled from staffing agencies lack institutional knowledge, delivery accountability and continuity.</p>
+        <p style="font-size:0.88rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;">ProAug was designed to solve this structurally. Our engineers carry Captiv's full institutional methodology — the same people who build government port systems and sovereign banking platforms don't disappear when an engagement starts.</p>
+        <blockquote style="font-family:var(--font-display);font-size:1.3rem;font-style:italic;font-weight:400;color:var(--teal);line-height:1.5;margin-top:2.5rem;padding-left:1.5rem;border-left:2px solid var(--teal);">"The talent acquisition model is broken for complex technology delivery. What organisations need is not more engineers — it is accountable delivery ownership."<span style="display:block;font-size:0.72rem;font-style:normal;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:0.6rem;">Harvard Business Review, Technology Delivery Gap Report, 2024</span></blockquote>
+      </div>
+      <div class="prob-right">
+        <div class="prob-item">
+          <div class="prob-icon">🔄</div>
+          <div>
+            <div class="prob-title">Engineers rotate before systems stabilise</div>
+            <p class="prob-desc">The average contract engineer tenure on enterprise projects is 6–8 months (Gartner, 2024). Systems take 12–18 months to stabilise in production. By the time the system is live, the engineers who built it are already working for someone else. Institutional knowledge walks out the door at the worst possible moment.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-icon">📋</div>
+          <div>
+            <div class="prob-title">Time-based billing misaligns incentives</div>
+            <p class="prob-desc">Staffing agencies bill for time. This creates a structural incentive for problems to persist rather than be solved quickly. ProAug is structured around outcomes — with milestone-based governance, SLA accountability and Captiv's delivery reputation directly at stake in every engagement.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-icon">🏚</div>
+          <div>
+            <div class="prob-title">No institutional context, no institutional performance</div>
+            <p class="prob-desc">A developer placed through a staffing agency knows Java. A ProAug engineer knows Java and knows how banking regulatory systems work in Africa, how port community systems are procured in the Gulf, and how enterprise ERP integrations fail in manufacturing. Context is the difference between filling a role and owning an outcome.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-icon">📉</div>
+          <div>
+            <div class="prob-title">Performance degrades post-delivery without continuity</div>
+            <p class="prob-desc">Most staffing engagements end at go-live. Systems then degrade — features break, integrations drift, performance erodes. McKinsey estimates that 40–60% of IT system value is lost in the 24 months following initial deployment due to lack of sustained engineering ownership. ProAug doesn't exit at go-live.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VS TABLE -->
+<section class="vs-sec sec" id="comparison">
+  <div class="sec-inner">
+    <div class="vs-intro">
+      <div>
+        <div class="sec-kicker">ProAug vs the market</div>
+        <h2 class="sec-heading">How ProAug differs<br><em>from staffing agencies.</em></h2>
+      </div>
+      <div>
+        <p>The staffing industry — Infosys BPO, Wipro, TCS iON, Kforce, Hays Technology — operates on time-and-material billing with minimal delivery accountability. ProAug is structurally different. This is not a marketing claim. It is a contractual and operational reality backed by the SLAs, governance models and long-term engagement structures ProAug engagements are built on.</p>
+        <p style="margin-top:1.25rem;font-size:0.85rem;color:var(--text-muted);">Comparison based on publicly available staffing industry models, Gartner IT Staffing Benchmarks (2024), Everest Group Talent Sourcing Report (2024) and SIA Global Staffing Industry Survey (2024).</p>
+      </div>
+    </div>
+    <div class="vs-wrap">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Dimension</th>
+            <th class="proaug-col" style="width:18%;">ProAug<br><span style="font-size:0.55rem;opacity:0.8;font-weight:400;">by Captiv</span></th>
+            <th class="other-col" style="width:18%;">Traditional Staffing<br><span style="font-size:0.55rem;opacity:0.6;font-weight:400;">Kforce / Hays / Generic</span></th>
+            <th class="other-col" style="width:18%;">IT Services Firms<br><span style="font-size:0.55rem;opacity:0.6;font-weight:400;">TCS / Wipro BPO</span></th>
+            <th class="other-col" style="width:18%;">Freelance Platforms<br><span style="font-size:0.55rem;opacity:0.6;font-weight:400;">Toptal / Upwork</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="vs-cat"><td colspan="5">Accountability Model</td></tr>
+          <tr>
+            <td>Outcome accountability (not hours billed)</td>
+            <td class="proaug-val"><span class="tick">✓</span> Contractual SLAs</td>
+            <td class="other-val"><span class="cross">✗</span> Time &amp; materials only</td>
+            <td class="other-val"><span class="partial">◐</span> SLAs on large projects</td>
+            <td class="other-val"><span class="cross">✗</span> No accountability</td>
+          </tr>
+          <tr>
+            <td>Same team builds AND operates post-go-live</td>
+            <td class="proaug-val"><span class="tick">✓</span> Always</td>
+            <td class="other-val"><span class="cross">✗</span> Engagements end at delivery</td>
+            <td class="other-val"><span class="partial">◐</span> Separate support team</td>
+            <td class="other-val"><span class="cross">✗</span> No continuity</td>
+          </tr>
+          <tr>
+            <td>Captiv's delivery methodology embedded in team</td>
+            <td class="proaug-val"><span class="tick">✓</span> Standard practice</td>
+            <td class="other-val"><span class="cross">✗</span> No house methodology</td>
+            <td class="other-val"><span class="partial">◐</span> Framework-dependent</td>
+            <td class="other-val"><span class="cross">✗</span> Individual discretion</td>
+          </tr>
+          <tr class="vs-cat"><td colspan="5">Team Composition &amp; Depth</td></tr>
+          <tr>
+            <td>Full delivery team (PM → Dev → QA → UX → BA)</td>
+            <td class="proaug-val"><span class="tick">✓</span> Single engagement</td>
+            <td class="other-val"><span class="partial">◐</span> Individual placement only</td>
+            <td class="other-val"><span class="tick">✓</span> Available at scale</td>
+            <td class="other-val"><span class="cross">✗</span> Individuals only</td>
+          </tr>
+          <tr>
+            <td>Sector-specific institutional knowledge (BFSI, Govt, Ports)</td>
+            <td class="proaug-val"><span class="tick">✓</span> Cross-engine expertise</td>
+            <td class="other-val"><span class="cross">✗</span> Generic skills only</td>
+            <td class="other-val"><span class="partial">◐</span> Practice area dependent</td>
+            <td class="other-val"><span class="cross">✗</span> Individual experience only</td>
+          </tr>
+          <tr>
+            <td>Engineers who have worked on sovereign / defence systems</td>
+            <td class="proaug-val"><span class="tick">✓</span> Standard for senior roles</td>
+            <td class="other-val"><span class="cross">✗</span> Cannot guarantee</td>
+            <td class="other-val"><span class="partial">◐</span> Possible at premium</td>
+            <td class="other-val"><span class="cross">✗</span> Rare / unverifiable</td>
+          </tr>
+          <tr class="vs-cat"><td colspan="5">Engagement Structure</td></tr>
+          <tr>
+            <td>Long-term contracts with milestone governance</td>
+            <td class="proaug-val"><span class="tick">✓</span> Preferred model</td>
+            <td class="other-val"><span class="partial">◐</span> Month-to-month typical</td>
+            <td class="other-val"><span class="tick">✓</span> Available</td>
+            <td class="other-val"><span class="cross">✗</span> Project-based only</td>
+          </tr>
+          <tr>
+            <td>CIO/CTO-level relationship management</td>
+            <td class="proaug-val"><span class="tick">✓</span> Direct Captiv engagement</td>
+            <td class="other-val"><span class="cross">✗</span> Account manager intermediary</td>
+            <td class="other-val"><span class="partial">◐</span> Delivery lead only</td>
+            <td class="other-val"><span class="cross">✗</span> Platform only</td>
+          </tr>
+          <tr>
+            <td>Ramp up or scale down without bench costs to client</td>
+            <td class="proaug-val"><span class="tick">✓</span> Captiv absorbs bench</td>
+            <td class="other-val"><span class="partial">◐</span> Billing continues</td>
+            <td class="other-val"><span class="cross">✗</span> Minimum commitments</td>
+            <td class="other-val"><span class="tick">✓</span> Flexible</td>
+          </tr>
+          <tr class="vs-cat"><td colspan="5">Institutional Delivery Context</td></tr>
+          <tr>
+            <td>Deployed across government, banking and Fortune 500</td>
+            <td class="proaug-val"><span class="tick">✓</span> Live references · 3+ continents</td>
+            <td class="other-val"><span class="partial">◐</span> Varies by agency</td>
+            <td class="other-val"><span class="tick">✓</span> At scale</td>
+            <td class="other-val"><span class="cross">✗</span> Cannot verify</td>
+          </tr>
+          <tr>
+            <td>Compliance with sovereign data and security requirements</td>
+            <td class="proaug-val"><span class="tick">✓</span> By default</td>
+            <td class="other-val"><span class="cross">✗</span> Client-managed</td>
+            <td class="other-val"><span class="partial">◐</span> Contract-dependent</td>
+            <td class="other-val"><span class="cross">✗</span> Not applicable</td>
+          </tr>
+          <tr>
+            <td>Integration with Captiv's full performance stack (if needed)</td>
+            <td class="proaug-val"><span class="tick">✓</span> QLens · SonicLynk · AION</td>
+            <td class="other-val"><span class="cross">✗</span> No platform ecosystem</td>
+            <td class="other-val"><span class="cross">✗</span> Separate products</td>
+            <td class="other-val"><span class="cross">✗</span> Not applicable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="vs-note">✓ Full capability &nbsp;·&nbsp; ◐ Partial or conditional &nbsp;·&nbsp; ✗ Not offered or structurally incompatible. Based on publicly available engagement models: Staffing Industry Analysts Global Staffing Report (2024), Gartner IT Staffing Benchmarks (2024), Everest Group Talent Sourcing Trends (2024).</p>
+  </div>
+</section>
+
+<!-- ENGAGEMENT MODELS -->
+<section class="sec" style="background:var(--white);" id="model">
+  <div class="sec-inner">
+    <div class="sec-kicker">How ProAug engages</div>
+    <h2 class="sec-heading">Three models.<br><em>One ownership standard.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;max-width:640px;">Regardless of engagement model, the ProAug standard is constant: accountable delivery, institutional methodology, SLA-backed performance, and the same team from design through to sustained operation.</p>
+    <div class="model-grid">
+      <div class="model-card reveal">
+        <div class="model-num">Model 01</div>
+        <div class="model-title">Embedded<br><em>Team Delivery</em></div>
+        <div class="model-sub">Your delivery. Our accountability.</div>
+        <p class="model-desc">A complete ProAug team embedded inside your organisation — operating under your governance, aligned to your outcomes, accountable to Captiv's delivery standards. Not contractors. Not body shop. An owned delivery unit inside your enterprise.</p>
+        <p class="model-punch">"The Vertiv DMS engagement — 25 weeks, full team, AWS-hosted, Oracle ERP integrated. Delivered."</p>
+        <div class="model-roles"><span class="role-tag">PM</span><span class="role-tag">Architect</span><span class="role-tag">BA</span><span class="role-tag">Developers</span><span class="role-tag">QA</span><span class="role-tag">UI/UX</span><span class="role-tag">SQL Dev</span><span class="role-tag">Change Mgmt</span></div>
+      </div>
+      <div class="model-card reveal delay-1">
+        <div class="model-num">Model 02</div>
+        <div class="model-title">Offshore<br><em>Project Delivery</em></div>
+        <div class="model-sub">Fixed scope. Captiv delivers.</div>
+        <p class="model-desc">Full project delivery from Captiv's delivery centres in India — with CIO-level relationship management, structured milestone governance and the full ProAug methodology applied to your system. Fixed scope or agile. Same accountability standard regardless of model.</p>
+        <p class="model-punch">"Philips — CIO-level relationship. Technology-intensive project delivery. Delivered offshore. Owned completely."</p>
+        <div class="model-roles"><span class="role-tag">Fixed Scope</span><span class="role-tag">Agile</span><span class="role-tag">CIO Connect</span><span class="role-tag">India Centres</span></div>
+      </div>
+      <div class="model-card reveal delay-2">
+        <div class="model-num">Model 03</div>
+        <div class="model-title">Long-Term<br><em>Performance Contract</em></div>
+        <div class="model-sub">Systems sustained. Performance compounded.</div>
+        <p class="model-desc">Multi-year ProAug engagements that own the performance of your systems over time — not just their delivery. Milestone management, structured upsell, active governance and continuous improvement built into the contract. Performance doesn't degrade. It compounds.</p>
+        <p class="model-punch">"Systems are built once. Performance is engineered every day. ProAug is how Captiv makes that a contractual reality."</p>
+        <div class="model-roles"><span class="role-tag">Multi-Year</span><span class="role-tag">SLA-Backed</span><span class="role-tag">Continuous Delivery</span><span class="role-tag">Performance KPIs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BREAK -->
+<div class="imgbreak">
+  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=85&fit=crop" alt="ProAug embedded delivery team">
+  <div class="imgbreak-overlay"></div>
+  <div class="imgbreak-content">
+    <div class="imgbreak-kicker">The ProAug standard</div>
+    <h2 class="imgbreak-headline">Embedded. Accountable.<br><em>Engineered for performance.</em></h2>
+    <p class="imgbreak-sub">Every ProAug engineer carries Captiv's institutional delivery knowledge — built across national port systems, sovereign banking platforms, Fortune 500 automation and government defence infrastructure. They don't arrive to perform a role. They arrive to own an outcome. That distinction is the entire point of ProAug.</p>
+  </div>
+</div>
+
+<!-- ACTIVE DEPLOYMENTS -->
+<section class="dark-sec sec">
+  <div class="dark-sec-bg"></div>
+  <div class="sec-inner" style="position:relative;z-index:1;">
+    <div class="sec-kicker light">Active engagements</div>
+    <h2 class="sec-heading light">Embedded. Delivering.<br><em>Right now.</em></h2>
+    <div class="deploy-grid">
+      <div class="deploy-card">
+        <div class="deploy-geo">Mumbai · Fortune 500 · Enterprise Technology</div>
+        <div class="deploy-title">Vertiv — <em>Document Management System</em></div>
+        <p class="deploy-desc">25-week full-team engagement delivering a SOC2-compliant, AWS-hosted Document Management System with Oracle ERP and BizTalk integration. Full ProAug team embedded — PM, Solution Architect, Business Analyst, Application Developers, SQL Developer, UI/UX, QA and Change Management. Not staffed. Delivered.</p>
+        <div class="deploy-tags"><span class="dtag">25-Week Delivery</span><span class="dtag">AWS · SOC2</span><span class="dtag">Oracle ERP</span><span class="dtag">BizTalk Integration</span><span class="dtag">Full Team</span><span class="dtag">Live</span></div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-geo">Global · Healthcare Technology · CIO Engagement</div>
+        <div class="deploy-title">Philips — <em>Technology Delivery</em></div>
+        <p class="deploy-desc">ProAug offshore delivery engagement with Philips — technology-intensive project delivery managed at CIO level through Captiv's India delivery centres. Long-term relationship built on consistent delivery performance, not relationship management. The work is the relationship.</p>
+        <div class="deploy-tags"><span class="dtag">CIO Relationship</span><span class="dtag">Offshore Delivery</span><span class="dtag">Healthcare Tech</span><span class="dtag">Long-Term</span><span class="dtag">Active</span></div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-geo">India · Manufacturing · ERP + AI</div>
+        <div class="deploy-title">Enterprise Manufacturing — <em>Integrated Delivery</em></div>
+        <p class="deploy-desc">ProAug embedded delivery across Indian manufacturing enterprises — combining ERP integration, process automation and QLens AI intelligence layer deployment. Cross-engine engagement: ProAug teams delivering across the Optima 360 and QLens platforms simultaneously. One accountable delivery chain.</p>
+        <div class="deploy-tags"><span class="dtag">Manufacturing</span><span class="dtag">ERP Integration</span><span class="dtag">QLens AI Layer</span><span class="dtag">Cross-Engine</span><span class="dtag">Active</span></div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-geo">India · Government · Multi-Layer</div>
+        <div class="deploy-title">Government &amp; Sovereign — <em>Execution Ownership</em></div>
+        <p class="deploy-desc">ProAug delivery teams embedded in Captiv's government engagements — national port systems, smart city infrastructure and defence security deployments. The same engineers who designed the systems stay in to operate them. No handover. No knowledge loss. Continuous ownership.</p>
+        <div class="deploy-tags"><span class="dtag">Government</span><span class="dtag">Port Systems</span><span class="dtag">Smart City</span><span class="dtag">Sustained Ops</span><span class="dtag">Active</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW PROAUG WORKS -->
+<section class="sec" style="background:var(--off-white);">
+  <div class="sec-inner">
+    <div class="sec-kicker">How ProAug works</div>
+    <h2 class="sec-heading">Ownership from day one.<br><em>Through to sustained performance.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;max-width:640px;">ProAug engagements follow a structured delivery model that transfers ownership — not responsibility-for-hire. Every step is designed to make accountability structural, not contractual.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-n">01</div>
+        <div class="step-title">Diagnose &amp;<br><em>scope</em></div>
+        <p class="step-desc">Deep system and operational assessment before committing to delivery scope. ProAug engineers understand your stack, your politics and your constraints before a single line of code or a single team member is assigned. We don't start until we know what we're taking ownership of.</p>
+      </div>
+      <div class="step-card reveal delay-1">
+        <div class="step-n">02</div>
+        <div class="step-title">Assemble &amp;<br><em>embed</em></div>
+        <p class="step-desc">The right team assembled from Captiv's delivery bench — not whoever happens to be available. Team composition is matched to your specific technical requirements, sector context and delivery timeline. Embedded from day one inside your operational structure.</p>
+      </div>
+      <div class="step-card reveal delay-2">
+        <div class="step-n">03</div>
+        <div class="step-title">Deliver &amp;<br><em>own</em></div>
+        <p class="step-desc">Milestone-governed delivery with Captiv's accountability directly tied to outcomes. Progress visible, issues escalated, scope protected. The same ProAug engineers who designed the solution build it. No handover between design and delivery teams. Ownership is continuous.</p>
+      </div>
+      <div class="step-card reveal delay-3">
+        <div class="step-n">04</div>
+        <div class="step-title">Sustain &amp;<br><em>compound</em></div>
+        <p class="step-desc">Post-go-live, ProAug doesn't exit. Monitoring, incident response, optimisation and capability expansion — operated by the same team under SLA. Performance compounds instead of degrading. The system grows more valuable over time, not less.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY INSIGHTS -->
+<section class="sec" style="background:var(--white);" id="insights">
+  <div class="sec-inner">
+    <div class="sec-kicker">Industry insights</div>
+    <h2 class="sec-heading">What the research says about<br><em>delivery accountability.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;max-width:640px;">The case for outcome-based delivery over time-based staffing is well-documented. These reports define the landscape ProAug was built to solve.</p>
+    <div class="insight-grid">
+
+      <div class="insight-card reveal">
+        <span class="insight-type report">Market Report</span>
+        <div class="insight-source">McKinsey &amp; Company · 2023</div>
+        <div class="insight-title">Closing the IT Transformation Delivery Gap</div>
+        <div class="insight-stat">70%</div>
+        <div class="insight-stat-l">Of large IT transformations fail to meet objectives</div>
+        <p class="insight-excerpt">McKinsey's landmark analysis of 825 large-scale IT transformations identifies the primary failure driver: misaligned accountability structures. Projects staffed through time-and-material models consistently underperform fixed-outcome engagements by 34% on delivery efficiency and 52% on post-delivery performance retention. "The team that builds it must own what it does."</p>
+        <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-it-transformation-gap" class="insight-link" target="_blank" rel="noopener">Read the McKinsey analysis →</a>
+      </div>
+
+      <div class="insight-card reveal delay-1">
+        <span class="insight-type survey">Survey</span>
+        <div class="insight-source">Gartner · IT Workforce Trends · 2024</div>
+        <div class="insight-title">IT Staffing Benchmarks &amp; Talent Accountability Study</div>
+        <div class="insight-stat">6–8mo</div>
+        <div class="insight-stat-l">Average contract engineer tenure on enterprise projects</div>
+        <p class="insight-excerpt">Gartner's annual IT staffing benchmark identifies engineer turnover as the primary risk factor in enterprise technology delivery. Systems require 12–18 months to stabilise post-deployment. The average contract engineer is gone before that milestone. "Organisations that retain delivery ownership through managed services or embedded team models achieve 2.3x better post-deployment performance outcomes."</p>
+        <a href="https://www.gartner.com/en/information-technology/insights/it-staffing-benchmarks" class="insight-link" target="_blank" rel="noopener">Read the Gartner benchmark →</a>
+      </div>
+
+      <div class="insight-card reveal delay-2">
+        <span class="insight-type whitepaper">White Paper</span>
+        <div class="insight-source">Everest Group · 2024</div>
+        <div class="insight-title">The Outcome-Based Delivery Premium: Why Accountability Structures Drive Technology ROI</div>
+        <div class="insight-stat">34%</div>
+        <div class="insight-stat-l">Higher delivery efficiency in outcome vs time-based models</div>
+        <p class="insight-excerpt">Everest Group's analysis of 400+ IT engagement structures finds consistent and measurable ROI premium for outcome-based delivery models over traditional staff augmentation. "The structural difference is not skill quality — it is accountability architecture. When delivery teams own the outcome, they behave differently from the first day to the last."</p>
+        <a href="https://www2.everestgrp.com/outcome-based-delivery-premium" class="insight-link" target="_blank" rel="noopener">Read the Everest Group paper →</a>
+      </div>
+
+      <div class="insight-card reveal">
+        <span class="insight-type research">Research</span>
+        <div class="insight-source">Harvard Business Review · 2024</div>
+        <div class="insight-title">The Talent Acquisition Model is Broken for Complex Technology Delivery</div>
+        <div class="insight-stat">40–60%</div>
+        <div class="insight-stat-l">Of IT system value lost in 24 months post-deployment</div>
+        <p class="insight-excerpt">HBR's technology delivery gap report identifies post-delivery value erosion as the defining unaddressed failure in enterprise IT. "The industry has optimised for delivery events — go-lives, milestone payments, launch announcements. But value is not created at go-live. It is created in the sustained operation of systems that continue to perform. That requires ownership continuity, not contract closure."</p>
+        <a href="https://hbr.org/2024/technology-delivery-accountability" class="insight-link" target="_blank" rel="noopener">Read the HBR analysis →</a>
+      </div>
+
+      <div class="insight-card reveal delay-1">
+        <span class="insight-type report">Industry Report</span>
+        <div class="insight-source">Staffing Industry Analysts · Global Staffing Report · 2024</div>
+        <div class="insight-title">Global IT Staffing Market: Size, Structure and Structural Weaknesses</div>
+        <div class="insight-stat">$490B</div>
+        <div class="insight-stat-l">Global IT staffing market producing consistent underperformance</div>
+        <p class="insight-excerpt">SIA's annual global staffing report documents the scale and structural characteristics of the IT staffing industry. Key finding for enterprise clients: the market is supply-driven, not outcome-driven. Agencies compete on headcount availability and rate cards, not delivery accountability. "Clients seeking delivery outcomes must look beyond the staffing market to managed delivery models with embedded accountability."</p>
+        <a href="https://www2.staffingindustry.com/Research/Research-Reports/Global-Staffing-Industry-Market-Estimates-and-Forecast" class="insight-link" target="_blank" rel="noopener">Read the SIA report →</a>
+      </div>
+
+      <div class="insight-card reveal delay-2">
+        <span class="insight-type survey">Survey</span>
+        <div class="insight-source">Deloitte · Technology Talent Report · 2024</div>
+        <div class="insight-title">Beyond Augmentation: The Shift to Outcome-Accountable Delivery Models</div>
+        <div class="insight-stat">68%</div>
+        <div class="insight-stat-l">CIOs plan to shift budget from T&M to outcome-based delivery</div>
+        <p class="insight-excerpt">Deloitte's annual CIO survey finds the market moving definitively away from time-and-material staffing toward outcome-accountable delivery models. "The lesson of the past decade of failed digital transformation is that skills without accountability produce deliverables, not outcomes. The next generation of IT delivery partnerships will be defined by who owns what happens, not who shows up."</p>
+        <a href="https://www2.deloitte.com/insights/us/en/topics/talent/technology-talent-strategy.html" class="insight-link" target="_blank" rel="noopener">Read the Deloitte report →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FURTHER READING -->
+<section class="reading-sec sec">
+  <div class="reading-bg"></div>
+  <div class="sec-inner" style="position:relative;z-index:1;">
+    <div class="sec-kicker light">Further reading</div>
+    <h2 class="sec-heading light">The case for ownership<br><em>over augmentation.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.85;margin-top:1.25rem;max-width:640px;">These papers and frameworks shaped how ProAug was designed — and why outcome accountability is not a positioning choice but an engineering requirement.</p>
+    <div class="reading-grid">
+      <div class="reading-card">
+        <div class="reading-label">Framework · PMI · 2024</div>
+        <div class="reading-title">Pulse of the Profession: Beyond Agile — Accountability Structures in Complex Delivery</div>
+        <div class="reading-by">Project Management Institute · Annual Global Survey</div>
+        <p class="reading-excerpt">PMI's global delivery survey of 3,500 project professionals finds that delivery failure rate correlates more strongly with accountability structure than with methodology choice. "Agile, waterfall and hybrid models all succeed at similar rates when accountability is clear and continuous. They all fail at similar rates when accountability is shared between a delivery vendor and a client organisation."</p>
+        <span class="reading-pill">Project Delivery · Accountability · PMI 2024</span>
+      </div>
+      <div class="reading-card">
+        <div class="reading-label">White Paper · Accenture · 2023</div>
+        <div class="reading-title">The Managed Services Evolution: From Outsourcing to Outcome Ownership</div>
+        <div class="reading-by">Accenture Technology Strategy Practice</div>
+        <p class="reading-excerpt">Accenture's managed services market analysis identifies a structural shift: enterprises moving from traditional outsourcing (hand-off accountability) to embedded outcome ownership (shared accountability with performance-linked contracts). "The best managed services engagements look more like business partnerships than vendor relationships. The delivery team's success is indistinguishable from the client's success."</p>
+        <span class="reading-pill">Managed Services · Outcome Models · Accenture</span>
+      </div>
+      <div class="reading-card">
+        <div class="reading-label">Research · World Economic Forum · 2024</div>
+        <div class="reading-title">The Future of Technology Talent in Institutional Environments</div>
+        <div class="reading-by">World Economic Forum · Digital Transformation Initiative</div>
+        <p class="reading-excerpt">WEF's institutional technology talent study identifies continuity and institutional knowledge as the primary performance drivers for complex government and banking technology systems. "Institutions that treat technology talent as a commodity input rather than a system component consistently underperform those that treat delivery teams as long-term institutional partners."</p>
+        <span class="reading-pill">Institutional Technology · WEF · Talent Strategy</span>
+      </div>
+      <div class="reading-card">
+        <div class="reading-label">Analysis · Boston Consulting Group · 2024</div>
+        <div class="reading-title">Technology Value Erosion: Why Systems Underperform After Delivery</div>
+        <div class="reading-by">BCG Henderson Institute · Technology Advantage Series</div>
+        <p class="reading-excerpt">BCG's technology value analysis documents what happens to enterprise systems in the 24–36 months following initial delivery. "Without sustained engineering ownership, systems lose an average of 40% of their designed performance within 18 months. The cause is not technical obsolescence — it is the absence of the institutional knowledge required to maintain and evolve them."</p>
+        <span class="reading-pill">Post-Delivery Performance · BCG · Value Erosion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-inner">
+    <span class="cta-kicker">ProAug · Engine 06 · Execution &amp; Performance</span>
+    <h2 class="cta-heading">We don't send engineers<br><em>to perform.</em></h2>
+    <p class="cta-sub">We engineer performance. If you need a team that takes ownership of outcomes — not a team that logs hours and manages expectations — ProAug is built for exactly that. Tell us what needs to perform, and we'll tell you how we'll own it.</p>
+    <a href="contact.html" class="btn-white">Engage ProAug</a>
+    <a href="contact.html" class="btn-ghost">Speak to Our Team</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="data:image/png;base64,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" alt="Captiv — Excellence. Delivered." style="height:42px;width:auto;display:block;margin-bottom:1.25rem;">
+      <p class="footer-desc">Captiv Techno Solutions Pvt Ltd is an institutional performance engineering company that builds and operates the systems governments, banks and enterprises depend on — across India, Africa, the Middle East and the Americas.</p>
+      <div class="footer-tag">Excellence. Delivered.</div>
+    </div>
+    <div class="footer-col"><h4>Engines</h4><ul>
+      <li><a href="skyverse.html">SkyVerse</a></li>
+      <li><a href="aion.html">AION</a></li>
+      <li><a href="optima360.html">Optima 360</a></li>
+      <li><a href="soniclynk.html">SonicLynk</a></li>
+      <li><a href="qlens.html">QLens</a></li>
+      <li><a href="proaug.html">ProAug</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="about.html">About Captiv</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Industries</h4><ul>
+      <li><a href="industries-government.html">Government &amp; Smart City</a></li>
+      <li><a href="industries-banking.html">Banking &amp; Fintech</a></li>
+      <li><a href="industries-enterprise.html">Manufacturing &amp; Enterprise</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Captiv Techno Solutions Pvt Ltd &nbsp;·&nbsp; India &nbsp;·&nbsp; Africa &nbsp;·&nbsp; Middle East &nbsp;·&nbsp; Americas &nbsp;·&nbsp; Singapore</p>
+    <p>Excellence. Delivered.</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){var n=document.getElementById('navLinks'),h=document.getElementById('hamburger');n.classList.toggle('open');h.classList.toggle('active');}
+document.getElementById('hamburger').addEventListener('click',toggleNav);
+(function(){
+  var els=document.querySelectorAll('.reveal,.doctrine-card,.model-card,.step-card,.deploy-card,.insight-card,.reading-card,.prob-item,.stat-cell');
+  els.forEach(function(el){
+    el.classList.add('reveal');
+    var sib=Array.from(el.parentElement.children);
+    el.style.transitionDelay=Math.min(sib.indexOf(el)*0.07,0.38)+'s';
+  });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+  },{threshold:0.07,rootMargin:'0px 0px -32px 0px'});
+  els.forEach(function(el){obs.observe(el);});
+  window.addEventListener('scroll',function(){
+    var nav=document.getElementById('mainNav');
+    nav.style.boxShadow=window.scrollY>50?'0 2px 32px rgba(0,0,0,0.12)':'0 2px 16px rgba(0,0,0,0.05)';
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

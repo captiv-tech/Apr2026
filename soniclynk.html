@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SonicLynk — Governance & Smart City Systems | Captiv</title>
+<meta name="description" content="SonicLynk by Captiv engineers sovereign-grade governance systems — smart city, safe city, port community systems, eGovernance and defence security across India, Middle East, Africa and the Americas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --teal:#0B6B54;--teal-dark:#084D3B;--teal-mid:#1A9E75;
+  --teal-light:#E6F4EF;--teal-xlight:#F2FAF7;
+  --navy:#0C1B2E;--navy-mid:#162840;
+  --white:#FFFFFF;--off-white:#F9F8F5;--cream:#F3F1EC;
+  --border:#E4E0D8;--border-light:#EDE9E2;
+  --text-primary:#0C1B2E;--text-secondary:#4B5563;--text-muted:#8B97A4;
+  --font-display:"Cormorant Garamond",serif;--font-body:"Figtree",sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{padding-top:62px;background:var(--white);color:var(--text-primary);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 4rem;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(11,107,84,0.1);box-shadow:0 2px 16px rgba(0,0,0,0.05);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+.nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center;margin:0;padding:0;}
+.nav-links>li{position:relative;}
+.nav-links a{color:#4B5563;text-decoration:none;font-size:0.81rem;font-weight:400;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:#0B6B54;font-weight:600;}
+.nav-dropdown{position:relative;}
+.nav-sub{display:none;position:absolute;top:calc(100% + 0.6rem);left:0;background:#fff;border:1px solid #EDE9E2;border-top:2px solid #0B6B54;min-width:220px;list-style:none;z-index:500;box-shadow:0 12px 40px rgba(0,0,0,0.1);}
+.nav-sub li a{display:block;padding:0.68rem 1.35rem;font-size:0.78rem;color:#4B5563;border-bottom:1px solid #EDE9E2;transition:all 0.15s;}
+.nav-sub li:last-child a{border-bottom:none;}
+.nav-sub li a:hover{background:#F2FAF7;color:#0B6B54;padding-left:1.65rem;}
+.nav-dropdown:hover .nav-sub{display:block;}
+.nav-cta{background:#0B6B54;color:#fff!important;padding:0.55rem 1.35rem;font-size:0.77rem;font-weight:600;text-decoration:none;letter-spacing:0.07em;transition:all 0.2s;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.nav-cta:hover{background:#084D3B;transform:translateY(-1px);box-shadow:0 4px 14px rgba(11,107,84,0.28);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:#0C1B2E;transition:all 0.25s;}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* SHARED */
+.sec{padding:7rem 4rem;}
+.sec-inner{max-width:1280px;margin:0 auto;}
+.sec-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.1rem;}
+.sec-kicker::before{content:"";width:1.75rem;height:2px;background:var(--teal);}
+.sec-heading{font-family:var(--font-display);font-size:clamp(2.6rem,3.8vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-0.01em;color:var(--navy);}
+.sec-heading em{font-style:italic;font-weight:400;color:var(--teal);}
+.btn-solid{background:var(--teal);color:var(--white);padding:0.9rem 2rem;font-size:0.875rem;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;display:inline-block;}
+.btn-solid:hover{background:var(--teal-dark);transform:translateY(-1px);}
+.btn-border{border:1.5px solid var(--white);color:var(--white);padding:0.9rem 2rem;font-size:0.875rem;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;display:inline-block;}
+.btn-border:hover{background:rgba(255,255,255,0.1);}
+.btn-teal-border{border:1.5px solid rgba(26,158,117,0.5);color:var(--teal-mid);padding:0.9rem 2rem;font-size:0.875rem;font-weight:500;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;display:inline-block;}
+.btn-teal-border:hover{background:rgba(26,158,117,0.08);border-color:var(--teal-mid);}
+.btn-white{background:var(--white);color:var(--teal);padding:1.1rem 2.75rem;font-size:0.875rem;font-weight:600;text-decoration:none;letter-spacing:0.05em;transition:all 0.2s;display:inline-block;text-transform:uppercase;margin-right:1rem;}
+.btn-white:hover{background:var(--off-white);transform:translateY(-2px);}
+
+/* HERO */
+.sl-hero{min-height:100vh;display:flex;align-items:center;padding:9rem 4rem 5rem;position:relative;overflow:hidden;background:var(--navy);}
+.sl-hero-img{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=1600&q=80");background-size:cover;background-position:center;opacity:0.13;z-index:0;}
+.sl-hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(12,27,46,0.97) 50%,rgba(12,27,46,0.65) 100%);z-index:1;}
+.sl-hero-rule{position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--teal-mid);opacity:0.4;z-index:2;}
+.sl-hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:55% 45%;gap:4rem;align-items:center;position:relative;z-index:2;}
+.sl-hero-tag{font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem;}
+.sl-hero-tag::before{content:"";display:block;width:2rem;height:2px;background:var(--teal-mid);}
+.sl-hero-headline{font-family:var(--font-display);font-size:clamp(3rem,5vw,5.5rem);font-weight:700;line-height:1.03;color:var(--white);margin-bottom:1.5rem;letter-spacing:-0.015em;}
+.sl-hero-headline em{font-style:italic;font-weight:400;color:var(--teal-mid);}
+.sl-hero-divider{width:3rem;height:2px;background:var(--teal-mid);margin-bottom:1.5rem;}
+.sl-hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:1.5rem;max-width:520px;}
+.sl-hero-punch{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:2.5rem;max-width:480px;}
+.sl-hero-punch em{font-style:italic;color:var(--teal-mid);}
+.sl-hero-btns{display:flex;gap:1.25rem;flex-wrap:wrap;}
+.sl-hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:2.5rem;position:relative;}
+.sl-hero-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal-mid);}
+.sl-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin-bottom:1.5rem;}
+.sl-stat{background:rgba(255,255,255,0.02);padding:1.5rem 1.25rem;}
+.sl-stat-n{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--teal-mid);line-height:1;margin-bottom:0.3rem;}
+.sl-stat-l{font-size:0.65rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+.sl-trust{font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.75;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);}
+.sl-trust strong{color:rgba(255,255,255,0.6);font-weight:500;}
+
+/* MARQUEE */
+.marquee-bar{background:var(--teal);padding:0;overflow:hidden;}
+.marquee-inner{display:flex;animation:scrollL 32s linear infinite;white-space:nowrap;}
+.marquee-inner:hover{animation-play-state:paused;}
+.m-item{font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.65);padding:0.85rem 2.5rem;border-right:1px solid rgba(255,255,255,0.15);flex-shrink:0;}
+.m-item:hover{color:var(--white);}
+@keyframes scrollL{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* PROBLEM SECTION */
+.prob-sec{background:var(--white);}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.prob-left p{font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.9;margin-top:1.5rem;max-width:480px;}
+.prob-stat{font-family:var(--font-display);font-size:clamp(3.5rem,6vw,6rem);font-weight:700;color:var(--navy);line-height:1;margin:1.5rem 0 0.5rem;}
+.prob-stat span{color:var(--teal);}
+.prob-stat-sub{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);}
+.prob-right{display:flex;flex-direction:column;gap:1px;background:var(--border-light);}
+.prob-item{background:var(--white);padding:1.75rem 2rem;display:flex;align-items:flex-start;gap:1.5rem;transition:all 0.2s;border-left:3px solid transparent;}
+.prob-item:hover{background:var(--teal-xlight);border-left-color:var(--teal);}
+.prob-item-icon{font-size:1.3rem;margin-top:0.1rem;flex-shrink:0;}
+.prob-item-title{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem;}
+.prob-item-desc{font-size:0.8rem;font-weight:300;color:var(--text-secondary);line-height:1.7;}
+
+/* WHAT IS SONICLYNK */
+.what-sec{background:var(--navy);position:relative;overflow:hidden;}
+.what-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.07) 1px,transparent 1px);background-size:32px 32px;}
+.what-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+.what-inner .sec-kicker{color:var(--teal-mid);}
+.what-inner .sec-kicker::before{background:var(--teal-mid);}
+.what-inner .sec-heading{color:var(--white);}
+.what-inner .sec-heading em{color:var(--teal-mid);}
+.what-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.9;margin-top:1.5rem;max-width:600px;}
+.what-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.05);margin-top:3.5rem;}
+.what-card{background:var(--navy);padding:2.25rem 1.75rem;border-top:2px solid transparent;transition:all 0.2s;}
+.what-card:hover{background:var(--navy-mid);border-top-color:var(--teal-mid);transform:translateY(-3px);}
+.what-card-n{font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:1rem;}
+.what-card-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:0.75rem;}
+.what-card-title em{font-style:italic;color:var(--teal-mid);font-weight:400;}
+.what-card-desc{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.75;}
+
+/* FULL-WIDTH IMAGE BREAK */
+.imgbreak{position:relative;height:480px;overflow:hidden;}
+.imgbreak img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s ease;}
+.imgbreak:hover img{transform:scale(1.03);}
+.imgbreak-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(12,27,46,0.92) 40%,rgba(12,27,46,0.3));}
+.imgbreak-content{position:absolute;top:50%;left:4rem;transform:translateY(-50%);max-width:580px;}
+.imgbreak-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;}
+.imgbreak-kicker::before{content:"";display:block;width:1.75rem;height:2px;background:var(--teal-mid);}
+.imgbreak-headline{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1rem;}
+.imgbreak-headline em{font-style:italic;font-weight:400;color:var(--teal-mid);}
+.imgbreak-sub{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.85;}
+.imgbreak-stats{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap;}
+.imgbreak-stat-n{font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--teal-mid);line-height:1;}
+.imgbreak-stat-l{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.25rem;}
+
+/* SERVICES */
+.services-sec{background:var(--off-white);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem;}
+.srv-card{background:var(--white);padding:2.5rem 2rem;border-top:2px solid transparent;transition:all 0.25s;}
+.srv-card:hover{background:var(--teal-xlight);border-top-color:var(--teal);transform:translateY(-3px);box-shadow:0 12px 32px rgba(11,107,84,0.1);}
+.srv-card.dark{background:var(--navy);border-top-color:var(--teal-mid);grid-column:span 2;}
+.srv-card.dark:hover{background:var(--navy-mid);transform:translateY(-3px);}
+.srv-img{width:100%;height:180px;object-fit:cover;display:block;margin-bottom:1.5rem;transition:transform 0.5s;overflow:hidden;}
+.srv-card:hover .srv-img{transform:scale(1.04);}
+.srv-num{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem;}
+.srv-card.dark .srv-num{color:rgba(255,255,255,0.25);}
+.srv-name{font-family:var(--font-display);font-size:1.65rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;line-height:1.1;}
+.srv-card.dark .srv-name{color:var(--white);font-size:2rem;}
+.srv-oneliner{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.srv-card.dark .srv-oneliner{color:var(--teal-mid);}
+.srv-desc{font-size:0.82rem;font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:1.25rem;}
+.srv-card.dark .srv-desc{color:rgba(255,255,255,0.45);font-size:0.88rem;max-width:560px;}
+.srv-punch{font-size:0.78rem;font-style:italic;color:var(--teal-dark);border-left:2px solid var(--teal-light);padding-left:0.75rem;line-height:1.6;}
+.srv-card.dark .srv-punch{color:var(--teal-mid);border-left-color:rgba(26,158,117,0.25);}
+.srv-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1.25rem;}
+.stag{font-size:0.58rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.55rem;border:1px solid var(--border-light);color:var(--text-muted);}
+.srv-card.dark .stag{border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);}
+
+/* TENDER / INSIGHTS SECTION */
+.tender-sec{background:var(--white);}
+.tender-intro{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-bottom:4rem;}
+.tender-intro p{font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.9;margin-top:1.25rem;}
+.tender-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.tender-card{background:var(--white);padding:0;overflow:hidden;border-top:3px solid transparent;transition:all 0.3s;position:relative;}
+.tender-card:hover{border-top-color:var(--teal);transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,107,84,0.1);}
+.tender-card-img{width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.5s;}
+.tender-card:hover .tender-card-img{transform:scale(1.04);}
+.tender-card-body{padding:2rem;}
+.tender-geo{font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:0.45rem;margin-bottom:0.65rem;}
+.tender-geo::before{content:"";width:10px;height:2px;background:var(--teal);}
+.tender-status{display:inline-block;font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.65rem;margin-bottom:0.85rem;}
+.tender-status.live{background:#E6F9F2;color:#0B6B54;}
+.tender-status.awarded{background:#EEF4FF;color:#1E40AF;}
+.tender-status.pipeline{background:#FFF8E6;color:#B45309;}
+.tender-status.intl{background:#F3E8FF;color:#6D28D9;}
+.tender-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;line-height:1.25;}
+.tender-punch{font-size:0.8rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.75rem;font-weight:400;line-height:1.55;}
+.tender-desc{font-size:0.79rem;font-weight:300;color:var(--text-secondary);line-height:1.75;}
+.tender-value{display:inline-block;margin-top:1rem;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);background:var(--teal-light);padding:0.3rem 0.75rem;}
+.tender-card.featured{grid-column:span 2;display:grid;grid-template-columns:45% 55%;}
+.tender-card.featured .tender-card-img{height:100%;min-height:280px;}
+.tender-card.featured .tender-card-body{background:var(--navy);padding:2.75rem;}
+.tender-card.featured .tender-geo{color:var(--teal-mid);}
+.tender-card.featured .tender-geo::before{background:var(--teal-mid);}
+.tender-card.featured .tender-title{color:var(--white);font-size:1.65rem;}
+.tender-card.featured .tender-punch{color:var(--teal-mid);}
+.tender-card.featured .tender-desc{color:rgba(255,255,255,0.45);}
+.tender-card.featured .tender-value{background:rgba(26,158,117,0.15);color:var(--teal-mid);}
+
+/* INSIGHTS STRIP */
+.insights-strip{background:var(--navy);padding:4rem;}
+.insights-strip-inner{max-width:1280px;margin:0 auto;}
+.insights-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-top:2.5rem;}
+.insight-cell{background:var(--navy);padding:2rem 1.75rem;border-bottom:2px solid transparent;transition:all 0.25s;cursor:default;}
+.insight-cell:hover{background:var(--navy-mid);border-bottom-color:var(--teal-mid);}
+.insight-n{font-family:var(--font-display);font-size:2.6rem;font-weight:700;color:var(--teal-mid);line-height:1;margin-bottom:0.4rem;}
+.insight-l{font-size:0.65rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);line-height:1.5;}
+
+/* INTERNATIONAL TENDERING */
+.intl-sec{background:var(--off-white);}
+.intl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.intl-right{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.intl-item{background:var(--white);padding:1.75rem 2rem;border-left:3px solid transparent;transition:all 0.2s;display:flex;gap:1.5rem;align-items:flex-start;}
+.intl-item:hover{background:var(--teal-xlight);border-left-color:var(--teal);}
+.intl-flag{font-size:1.6rem;flex-shrink:0;margin-top:0.1rem;}
+.intl-country{font-size:0.62rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.3rem;}
+.intl-title{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem;}
+.intl-desc{font-size:0.79rem;font-weight:300;color:var(--text-secondary);line-height:1.7;}
+.intl-tag{display:inline-block;margin-top:0.5rem;font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.6rem;border:1px solid var(--border);color:var(--text-muted);}
+
+/* MOSAIC IMAGE SECTION */
+.img-mosaic-sec{padding:0;overflow:hidden;}
+.img-mosaic{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:3px;height:500px;}
+.img-mosaic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+.img-mosaic img:hover{transform:scale(1.04);}
+.img-mosaic .img-tall{grid-row:span 2;position:relative;overflow:hidden;}
+.img-mosaic .img-small{position:relative;overflow:hidden;}
+.img-mosaic-label{position:absolute;bottom:1.25rem;left:1.25rem;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-mid);background:rgba(12,27,46,0.85);padding:0.3rem 0.7rem;}
+
+/* HOW WE WORK */
+.how-sec{background:var(--white);}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:3.5rem;}
+.how-step{background:var(--white);padding:2.5rem 2rem;border-top:2px solid transparent;transition:all 0.25s;}
+.how-step:hover{border-top-color:var(--teal);background:var(--teal-xlight);transform:translateY(-3px);}
+.how-step-n{font-family:var(--font-display);font-size:3rem;font-weight:700;color:rgba(11,107,84,0.07);line-height:1;margin-bottom:1rem;}
+.how-step-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:0.75rem;}
+.how-step-title em{font-style:italic;color:var(--teal);font-weight:400;}
+.how-step-desc{font-size:0.8rem;font-weight:300;color:var(--text-secondary);line-height:1.75;}
+
+/* SECOND IMAGE BREAK */
+.imgbreak2{position:relative;height:420px;overflow:hidden;}
+.imgbreak2 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s ease;}
+.imgbreak2:hover img{transform:scale(1.03);}
+.imgbreak2-overlay{position:absolute;inset:0;background:linear-gradient(to left,rgba(12,27,46,0.92) 35%,rgba(12,27,46,0.2));}
+.imgbreak2-content{position:absolute;top:50%;right:4rem;transform:translateY(-50%);max-width:520px;text-align:right;}
+.imgbreak2-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:0.75rem;display:block;}
+.imgbreak2-headline{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1rem;}
+.imgbreak2-headline em{font-style:italic;font-weight:400;color:var(--teal-mid);}
+.imgbreak2-sub{font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;}
+
+/* SECTORS */
+.sectors-sec{background:var(--navy);position:relative;overflow:hidden;}
+.sectors-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(26,158,117,0.06) 1px,transparent 1px);background-size:28px 28px;}
+.sectors-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+.sectors-inner .sec-kicker{color:var(--teal-mid);}
+.sectors-inner .sec-kicker::before{background:var(--teal-mid);}
+.sectors-inner .sec-heading{color:var(--white);}
+.sectors-inner .sec-heading em{color:var(--teal-mid);}
+.sectors-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.9;margin-top:1.25rem;max-width:560px;}
+.sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05);margin-top:3.5rem;}
+.sector-card{background:var(--navy);padding:2.5rem 2rem;transition:all 0.25s;position:relative;cursor:default;}
+.sector-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background 0.25s;}
+.sector-card:hover::before{background:var(--teal-mid);}
+.sector-card:hover{background:var(--navy-mid);transform:translateY(-3px);}
+.sector-icon{font-size:1.75rem;margin-bottom:1.25rem;}
+.sector-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;}
+.sector-desc{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.75;}
+.sector-stat{font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-mid);margin-top:1rem;}
+
+/* CTA */
+.cta-sec{background:var(--teal);padding:7rem 4rem;text-align:center;position:relative;overflow:hidden;}
+.cta-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.08) 1px,transparent 1px);background-size:32px 32px;z-index:0;}
+.cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:1;}
+.cta-kicker{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:1.75rem;display:block;}
+.cta-heading{font-family:var(--font-display);font-size:clamp(3rem,5vw,4.8rem);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:1rem;letter-spacing:-0.015em;}
+.cta-heading em{font-style:italic;font-weight:400;}
+.cta-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:2.5rem;}
+
+/* FOOTER */
+footer{background:#0C1B2E;padding:5rem 4rem 2rem;border-top:3px solid #0B6B54;}
+.footer-top{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,0.07);}
+.footer-brand{display:flex;flex-direction:column;}
+.footer-desc{font-size:0.77rem;font-weight:300;color:rgba(255,255,255,0.3);line-height:1.9;max-width:252px;margin-bottom:1.25rem;}
+.footer-tag{font-size:0.59rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#1A9E75;}
+.footer-col h4{font-size:0.57rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:1.35rem;}
+.footer-col ul{list-style:none;padding:0;margin:0;}
+.footer-col li{margin-bottom:0.65rem;}
+.footer-col a{font-size:0.79rem;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{max-width:1280px;margin:0 auto;padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;}
+.footer-bottom p{font-size:0.65rem;font-weight:300;color:rgba(255,255,255,0.14);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.sl-hero-tag{animation:fadeUp 0.7s 0.0s ease both;}
+.sl-hero-headline{animation:fadeUp 0.7s 0.12s ease both;}
+.sl-hero-divider{animation:fadeUp 0.7s 0.22s ease both;}
+.sl-hero-sub{animation:fadeUp 0.7s 0.3s ease both;}
+.sl-hero-punch{animation:fadeUp 0.7s 0.36s ease both;}
+.sl-hero-btns{animation:fadeUp 0.7s 0.42s ease both;}
+.sl-hero-card{animation:fadeUp 0.7s 0.18s ease both;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1),transform 0.75s cubic-bezier(0.16,1,0.3,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:0.08s;} .delay-2{transition-delay:0.16s;} .delay-3{transition-delay:0.24s;} .delay-4{transition-delay:0.32s;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav{padding:0.85rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:#fff;border-bottom:1px solid #EDE9E2;z-index:999;padding:0.5rem 0;max-height:80vh;overflow-y:auto;box-shadow:0 8px 28px rgba(0,0,0,0.12);}
+  .nav-links.open>li>a{display:block;padding:0.85rem 1.75rem;font-size:0.9rem;border-bottom:1px solid #EDE9E2;}
+  .nav-links.open .nav-sub{display:block!important;position:static;box-shadow:none;border:none;background:#F9F8F5;padding-left:1rem;border-top:none;}
+  .hamburger{display:flex;}
+  .nav-cta{display:none;}
+  .sec{padding:5rem 1.5rem;}
+  .sl-hero{padding:7rem 1.5rem 4rem;}
+  .sl-hero-inner,.prob-grid,.tender-intro,.intl-grid{grid-template-columns:1fr;gap:3rem;}
+  .what-grid{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .srv-card.dark{grid-column:span 1;}
+  .tender-grid{grid-template-columns:1fr;}
+  .tender-card.featured{grid-column:span 1;grid-template-columns:1fr;}
+  .tender-card.featured .tender-card-img{height:240px;}
+  .insights-row{grid-template-columns:1fr 1fr;}
+  .how-steps{grid-template-columns:1fr 1fr;}
+  .sectors-grid{grid-template-columns:1fr 1fr;}
+  .img-mosaic{grid-template-columns:1fr;height:320px;}
+  .img-mosaic .img-tall{grid-row:span 1;}
+  footer{padding:4rem 1.5rem 2rem;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .imgbreak-content{left:1.5rem;right:1.5rem;max-width:100%;}
+  .imgbreak2-content{left:1.5rem;right:1.5rem;max-width:100%;text-align:left;}
+  .insights-strip{padding:4rem 1.5rem;}
+}
+@media(max-width:600px){
+  .footer-top{grid-template-columns:1fr;}
+  .what-grid{grid-template-columns:1fr;}
+  .sectors-grid{grid-template-columns:1fr;}
+  .how-steps{grid-template-columns:1fr;}
+}
+@media(min-width:1101px){.hamburger{display:none;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><img src="data:image/png;base64,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" alt="Captiv — Excellence. Delivered." style="height:38px;width:auto;display:block;"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li class="nav-dropdown">
+      <a href="index.html#engines">Engines ▾</a>
+      <ul class="nav-sub">
+        <li><a href="skyverse.html">SkyVerse</a></li>
+        <li><a href="aion.html">AION</a></li>
+        <li><a href="optima360.html">Optima 360</a></li>
+        <li><a href="soniclynk.html" class="active">SonicLynk</a></li>
+        <li><a href="qlens.html">QLens</a></li>
+        <li><a href="proaug.html">ProAug</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="industries-government.html">Industries ▾</a>
+      <ul class="nav-sub">
+        <li><a href="industries-government.html">Government &amp; Smart City</a></li>
+        <li><a href="industries-banking.html">Banking &amp; Fintech</a></li>
+        <li><a href="industries-enterprise.html">Manufacturing &amp; Enterprise</a></li>
+      </ul>
+    </li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="partners.html">Partners</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Build with Captiv</a>
+</nav>
+
+<!-- HERO -->
+<section class="sl-hero">
+  <div class="sl-hero-img"></div>
+  <div class="sl-hero-overlay"></div>
+  <div class="sl-hero-rule"></div>
+  <div class="sl-hero-inner">
+    <div>
+      <div class="sl-hero-tag">Engine 04 · SonicLynk · Government &amp; Smart City · 4 Continents</div>
+      <h1 class="sl-hero-headline">
+        Governance built<br>
+        <em>into the system itself.</em>
+      </h1>
+      <div class="sl-hero-divider"></div>
+      <p class="sl-hero-sub">SonicLynk engineers sovereign-grade accountability into the systems governments, defence establishments and smart cities operate — not as an audit layer on top, but as the architecture itself. From national port networks to urban surveillance to fund monitoring — across India, the Middle East, Africa and the Americas — every action becomes traceable, every outcome becomes measurable.</p>
+      <p class="sl-hero-punch">Not off-the-shelf portals. Not generic GovTech.<br><em>Institutional accountability — engineered at the point of action.</em></p>
+      <div class="sl-hero-btns">
+        <a href="#contact" class="btn-solid">Speak to Our Team</a>
+        <a href="#services" class="btn-teal-border">Explore Our Systems</a>
+      </div>
+    </div>
+    <div class="sl-hero-card">
+      <div class="sl-stat-row">
+        <div class="sl-stat">
+          <div class="sl-stat-n">4</div>
+          <div class="sl-stat-l">Continents · India, Middle East, Africa &amp; Americas</div>
+        </div>
+        <div class="sl-stat">
+          <div class="sl-stat-n">₹0</div>
+          <div class="sl-stat-l">Cost to ministry — BOOT model delivered</div>
+        </div>
+        <div class="sl-stat">
+          <div class="sl-stat-n">10+</div>
+          <div class="sl-stat-l">Live &amp; active tender engagements</div>
+        </div>
+        <div class="sl-stat">
+          <div class="sl-stat-n">6+</div>
+          <div class="sl-stat-l">Sovereign systems deployed &amp; operational</div>
+        </div>
+      </div>
+      <p class="sl-trust">Delivered for <strong>Chennai Smart City, Puducherry Union Territory, Indian Army, Indian Ports Association</strong> and a <strong>Gulf sovereign government</strong> — protecting and governing millions of citizens and national assets across four continents including the Americas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span class="m-item">Safe City</span><span class="m-item">eGovernance</span><span class="m-item">Police Surveillance</span><span class="m-item">Traffic Enforcement</span><span class="m-item">Port Community Systems</span><span class="m-item">Smart City</span><span class="m-item">Defence Security</span><span class="m-item">Fund Monitoring</span><span class="m-item">Cyber Forensics Lab</span><span class="m-item">Road Safety</span><span class="m-item">Utilities Management</span><span class="m-item">Municipality Systems</span><span class="m-item">National Infrastructure</span><span class="m-item">Sovereign Systems</span><span class="m-item">Border Management</span><span class="m-item">Command &amp; Control</span><span class="m-item">Americas Engagements</span>
+    <span class="m-item">Safe City</span><span class="m-item">eGovernance</span><span class="m-item">Police Surveillance</span><span class="m-item">Traffic Enforcement</span><span class="m-item">Port Community Systems</span><span class="m-item">Smart City</span><span class="m-item">Defence Security</span><span class="m-item">Fund Monitoring</span><span class="m-item">Cyber Forensics Lab</span><span class="m-item">Road Safety</span><span class="m-item">Utilities Management</span><span class="m-item">Municipality Systems</span><span class="m-item">National Infrastructure</span><span class="m-item">Sovereign Systems</span><span class="m-item">Border Management</span><span class="m-item">Command &amp; Control</span><span class="m-item">Americas Engagements</span>
+  </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section class="prob-sec sec">
+  <div class="sec-inner">
+    <div class="prob-grid">
+      <div class="prob-left">
+        <div class="sec-kicker">The governance gap</div>
+        <h2 class="sec-heading">Governments deploy systems.<br><em>Few govern them.</em></h2>
+        <p>Municipalities, police departments, ports, defence establishments and sovereign governments deploy software constantly. But without accountability built into the architecture itself — compliance becomes a paper exercise, funds disappear between reporting layers, and citizens pay the price through failed services and unsafe cities.</p>
+        <div class="prob-stat"><span>₹</span>1.87L<span>Cr</span></div>
+        <p class="prob-stat-sub">Lost annually to government system failures &amp; inefficiency (India, World Bank estimate)</p>
+        <p style="margin-top:1.5rem;font-size:0.88rem;font-weight:300;color:var(--text-secondary);line-height:1.85;">SonicLynk's answer: don't audit after. Build governance into the system so accountability is structural, not procedural. When every action is traceable, every officer is accountable, and every rupee is tracked — performance follows automatically.</p>
+        <a href="#services" class="btn-solid" style="margin-top:2rem;display:inline-block;">See SonicLynk Systems</a>
+      </div>
+      <div class="prob-right">
+        <div class="prob-item">
+          <div class="prob-item-icon">🏛</div>
+          <div>
+            <div class="prob-item-title">Funds released without accountability trails</div>
+            <p class="prob-item-desc">National and municipal funds disbursed through manual approval chains — no real-time monitoring, no line-item traceability to citizen outcomes. ₹1 of every ₹4 in government spend cannot be reconciled to outcomes.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-item-icon">🏙</div>
+          <div>
+            <div class="prob-item-title">City surveillance without command intelligence</div>
+            <p class="prob-item-desc">CCTV networks deployed without integrated command layers — footage that cannot be used for real-time incident response or evidence-grade forensics. 68% of installed surveillance systems in Indian cities are not operationally connected.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-item-icon">⚓</div>
+          <div>
+            <div class="prob-item-title">Port ecosystems running on disconnected systems</div>
+            <p class="prob-item-desc">Sea, air and land border ports operating on siloed systems — customs, logistics, cargo and vessel data in separate silos, creating bottlenecks, revenue leakage and national security gaps.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-item-icon">🛡</div>
+          <div>
+            <div class="prob-item-title">Defence perimeters without integrated security layers</div>
+            <p class="prob-item-desc">Mission-critical infrastructure secured by patchwork solutions — no single command view, no automated threat response, no evidence-grade audit trail. Zero tolerance for failure demands zero tolerance for gaps.</p>
+          </div>
+        </div>
+        <div class="prob-item">
+          <div class="prob-item-icon">🚦</div>
+          <div>
+            <div class="prob-item-title">Traffic enforcement without enforcement intelligence</div>
+            <p class="prob-item-desc">Traffic cameras installed without AI-powered enforcement intelligence — no automatic violation detection, no license plate integration, no real-time incident analytics. Infrastructure that watches but doesn't act.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS SONICLYNK -->
+<section class="what-sec sec">
+  <div class="what-bg"></div>
+  <div class="what-inner">
+    <div class="sec-kicker">What SonicLynk is</div>
+    <h2 class="sec-heading">The governance engine for<br><em>sovereign institutions.</em></h2>
+    <p class="what-sub">SonicLynk is not a compliance tool. It is the operating system of accountability — a set of deeply engineered platforms that governments and sovereign institutions use to govern at scale, in real time, without relying on manual oversight at every step.</p>
+    <div class="what-grid">
+      <div class="what-card reveal">
+        <div class="what-card-n">01</div>
+        <div class="what-card-title">Structural<br><em>accountability</em></div>
+        <div class="what-card-desc">Governance built into workflows, not audited on top of them. Every action creates an immutable, traceable record — from fund disbursement to officer assignments.</div>
+      </div>
+      <div class="what-card reveal delay-1">
+        <div class="what-card-n">02</div>
+        <div class="what-card-title">Real-time<br><em>visibility</em></div>
+        <div class="what-card-desc">Command and control dashboards giving ministers, commissioners and security chiefs live operational awareness — not reports that arrive days later.</div>
+      </div>
+      <div class="what-card reveal delay-2">
+        <div class="what-card-n">03</div>
+        <div class="what-card-title">Sovereign-grade<br><em>security</em></div>
+        <div class="what-card-desc">Data sovereignty, encryption and access control designed to defence-grade standards. Deployed for national defence establishments, port authorities and government treasuries.</div>
+      </div>
+      <div class="what-card reveal delay-3">
+        <div class="what-card-n">04</div>
+        <div class="what-card-title">Zero-cost<br><em>BOOT delivery</em></div>
+        <div class="what-card-desc">Build-Operate-Own-Transfer model — governments receive fully operational systems with zero capital expenditure. Captiv funds, builds and operates. Ministry owns the outcome.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-WIDTH IMAGE BREAK 1 -->
+<div class="imgbreak">
+  <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600&q=85&fit=crop" alt="National Port Community System — Gulf Sovereign Government">
+  <div class="imgbreak-overlay"></div>
+  <div class="imgbreak-content">
+    <div class="imgbreak-kicker">Delivered · Gulf Sovereign Government · BOOT Model</div>
+    <h2 class="imgbreak-headline">National Port Community System —<br><em>all sea, air and land border ports.</em></h2>
+    <p class="imgbreak-sub">Conceived, architected, funded and delivered under BOOT model — at zero cost to the ministry. One integrated platform covering every border crossing in the country. Framework agreement signed for global white-label expansion across five additional sovereign clients.</p>
+    <div class="imgbreak-stats">
+      <div><div class="imgbreak-stat-n">₹0</div><div class="imgbreak-stat-l">Capex to ministry</div></div>
+      <div><div class="imgbreak-stat-n">100%</div><div class="imgbreak-stat-l">Border ports covered</div></div>
+      <div><div class="imgbreak-stat-n">5+</div><div class="imgbreak-stat-l">Global expansion targets</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-sec sec" id="services">
+  <div class="sec-inner">
+    <div class="sec-kicker">What we build</div>
+    <h2 class="sec-heading">Six systems that govern<br><em>at institutional scale.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;max-width:640px;">Every SonicLynk system is purpose-engineered for the operating context — not adapted from commercial software. Built for the volume, complexity and security requirements of sovereign institutions.</p>
+    <div class="services-grid">
+
+      <!-- Safe City -->
+      <div class="srv-card">
+        <div style="overflow:hidden;height:180px;margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=85&fit=crop" alt="Safe City Surveillance" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;">
+        </div>
+        <div class="srv-num">System 01</div>
+        <div class="srv-name">Safe City &amp; Surveillance</div>
+        <div class="srv-oneliner">Urban security. Command intelligence.</div>
+        <p class="srv-desc">City-wide CCTV networks integrated with AI-powered command and control. Incident detection, evidence-grade footage, real-time alerts and forensics — deployed for Chennai Smart City and Puducherry Union Territory. Not just cameras. A city that watches, thinks and responds.</p>
+        <p class="srv-punch">"City-scale systems protecting millions of citizens across South India."</p>
+        <div class="srv-tags"><span class="stag">CCTV Command</span><span class="stag">AI Video Analytics</span><span class="stag">Incident Response</span><span class="stag">Evidence Management</span><span class="stag">Smart City</span></div>
+      </div>
+
+      <!-- Traffic -->
+      <div class="srv-card">
+        <div style="overflow:hidden;height:180px;margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800&q=85&fit=crop" alt="Traffic Enforcement System" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;">
+        </div>
+        <div class="srv-num">System 02</div>
+        <div class="srv-name">Traffic &amp; Road Safety</div>
+        <div class="srv-oneliner">Enforcement that enforces itself.</div>
+        <p class="srv-desc">AI-powered traffic enforcement with automatic violation detection, licence plate recognition, speed and signal violation capture. Integrated with fine issuance systems and court workflows. Deployed across South Indian roads as part of smart city mandates.</p>
+        <p class="srv-punch">"Automated enforcement at scale — no manual intervention required."</p>
+        <div class="srv-tags"><span class="stag">ANPR</span><span class="stag">Speed Detection</span><span class="stag">Violation Automation</span><span class="stag">Road Safety Analytics</span></div>
+      </div>
+
+      <!-- Flagship: Port Community System -->
+      <div class="srv-card dark">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+          <div>
+            <div class="srv-num">System 03 · Flagship</div>
+            <div class="srv-name">National Port Community System</div>
+            <div class="srv-oneliner">Sea · Air · Land · One platform.</div>
+            <p class="srv-desc">Complete port community system covering all cargo, vessel, customs, logistics and border management operations across a nation's sea ports, airports and land border crossings. Designed and delivered under BOOT model — zero capex to government. Framework agreement signed for global white-label licensing.</p>
+            <p class="srv-punch">"Conceived, built and delivered for a Gulf sovereign government — not just bid for."</p>
+            <div class="srv-tags"><span class="stag">Cargo Management</span><span class="stag">Vessel Scheduling</span><span class="stag">Customs Integration</span><span class="stag">Border Control</span><span class="stag">BOOT Delivery</span><span class="stag">White-label Ready</span></div>
+          </div>
+          <div style="overflow:hidden;border-radius:0;">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=85&fit=crop" alt="Port Community System" style="width:100%;height:320px;object-fit:cover;display:block;transition:transform 0.5s;">
+          </div>
+        </div>
+      </div>
+
+      <!-- Defence -->
+      <div class="srv-card">
+        <div style="overflow:hidden;height:180px;margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&q=85&fit=crop" alt="Defence Perimeter Security" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;">
+        </div>
+        <div class="srv-num">System 04</div>
+        <div class="srv-name">Defence &amp; Perimeter Security</div>
+        <div class="srv-oneliner">Zero tolerance. Zero failure.</div>
+        <p class="srv-desc">Mission-critical perimeter security infrastructure for defence establishments — integrated scanner networks, surveillance, access control and threat detection systems engineered to defence-grade standards. Deployed for the Indian Army. Every component meets sovereign security specifications.</p>
+        <p class="srv-punch">"When security cannot fail, trust cannot be assumed."</p>
+        <div class="srv-tags"><span class="stag">Perimeter Security</span><span class="stag">Threat Detection</span><span class="stag">Access Control</span><span class="stag">Defence Grade</span></div>
+      </div>
+
+      <!-- Cyber Forensics -->
+      <div class="srv-card">
+        <div style="overflow:hidden;height:180px;margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=85&fit=crop" alt="Cyber Forensics Lab" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;">
+        </div>
+        <div class="srv-num">System 05</div>
+        <div class="srv-name">Cyber Forensics Lab</div>
+        <div class="srv-oneliner">Evidence. Intelligence. Court-ready.</div>
+        <p class="srv-desc">Full-stack cyber forensics laboratory design, equipment procurement and operational setup for law enforcement and government agencies. Digital evidence collection, analysis and chain-of-custody management to court-admissible standards. Operational in South India for government law enforcement agencies.</p>
+        <p class="srv-punch">"Digital evidence infrastructure to prosecute — not just investigate."</p>
+        <div class="srv-tags"><span class="stag">Digital Forensics</span><span class="stag">Evidence Chain</span><span class="stag">Lab Setup</span><span class="stag">Law Enforcement</span></div>
+      </div>
+
+      <!-- eGovernance -->
+      <div class="srv-card">
+        <div style="overflow:hidden;height:180px;margin-bottom:1.5rem;">
+          <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=85&fit=crop" alt="eGovernance Fund Monitoring" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;">
+        </div>
+        <div class="srv-num">System 06</div>
+        <div class="srv-name">eGovernance &amp; Fund Monitoring</div>
+        <div class="srv-oneliner">Every rupee tracked. Every outcome measured.</div>
+        <p class="srv-desc">Government fund disbursement and monitoring platforms that trace every rupee from allocation to citizen outcome. Approval workflows, real-time utilisation tracking, variance reporting and outcome measurement — making accountability structural rather than procedural for municipal and state governments.</p>
+        <p class="srv-punch">"Governance that makes leakage structurally impossible."</p>
+        <div class="srv-tags"><span class="stag">Fund Monitoring</span><span class="stag">eGovernance</span><span class="stag">Citizen Services</span><span class="stag">Approval Workflows</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS STRIP -->
+<div class="insights-strip">
+  <div class="insights-strip-inner">
+    <div class="sec-kicker" style="color:var(--teal-mid);">SonicLynk by the numbers</div>
+    <h2 class="sec-heading" style="color:var(--white);">Performance that<br><em>speaks for itself.</em></h2>
+    <div class="insights-row">
+      <div class="insight-cell reveal"><div class="insight-n">6</div><div class="insight-l">Government &amp; defence deployments<br>live across India</div></div>
+      <div class="insight-cell reveal delay-1"><div class="insight-n">₹0</div><div class="insight-l">Capital expenditure to ministry<br>under BOOT model</div></div>
+      <div class="insight-cell reveal delay-2"><div class="insight-n">100%</div><div class="insight-l">Border ports covered in national<br>port community system</div></div>
+      <div class="insight-cell reveal delay-3"><div class="insight-n">5+</div><div class="insight-l">Global sovereign expansion targets<br>in framework agreement</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TENDER PIPELINE & INSIGHTS -->
+<section class="tender-sec sec" id="tenders">
+  <div class="sec-inner">
+    <div class="tender-intro">
+      <div>
+        <div class="sec-kicker">Tender pipeline &amp; programme insights</div>
+        <h2 class="sec-heading">Active engagements.<br><em>Proven across sovereign markets.</em></h2>
+      </div>
+      <div>
+        <p>SonicLynk operates at the intersection of public procurement and sovereign delivery across India, the Middle East, Africa and the Americas. The engagements below are not prospects — they are programmes Captiv has competed for, won and delivered. Every entry represents a real government client, a real procurement process and a real system in operation.</p>
+        <p style="margin-top:1.25rem;font-size:0.85rem;color:var(--text-muted);">Status codes: <span style="background:#E6F9F2;color:#0B6B54;padding:0.15rem 0.5rem;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Live</span> = deployed &amp; operational &nbsp; <span style="background:#EEF4FF;color:#1E40AF;padding:0.15rem 0.5rem;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Awarded</span> = won, in delivery &nbsp; <span style="background:#FFF8E6;color:#B45309;padding:0.15rem 0.5rem;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Pipeline</span> = active tender &nbsp; <span style="background:#F3E8FF;color:#6D28D9;padding:0.15rem 0.5rem;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">International</span> = cross-border</p>
+      </div>
+    </div>
+
+    <div class="tender-grid">
+
+      <!-- Featured: Oman Port -->
+      <div class="tender-card featured">
+        <img src="https://images.unsplash.com/photo-1577587230708-187fdbef4d91?w=900&q=85&fit=crop&crop=center" alt="Oman National Port Community System" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">Oman · Gulf Sovereign Government</div>
+          <span class="tender-status awarded">Awarded &amp; Delivered</span>
+          <span class="tender-status intl" style="margin-left:0.5rem;">International</span>
+          <div class="tender-title">National Port Community System — All Border Ports</div>
+          <p class="tender-punch">"Conceived, funded, built and delivered — not just bid for."</p>
+          <p class="tender-desc">Full national port community system covering all sea, air and land border ports under Ministry of Transport. BOOT model — zero capital expenditure to the Omani government. Captiv designed, funded and operates the system. Framework agreement for global white-label expansion to five additional sovereign clients now under negotiation.</p>
+          <span class="tender-value">Framework Value: Undisclosed · White-label pipeline: 5 countries</span>
+        </div>
+      </div>
+
+      <!-- Chennai Smart City -->
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=85&fit=crop" alt="Chennai Smart City" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">India · Tamil Nadu</div>
+          <span class="tender-status live">Live</span>
+          <div class="tender-title">Chennai Smart City — Surveillance &amp; Road Safety</div>
+          <p class="tender-punch">"Protecting millions of citizens across South India's largest city."</p>
+          <p class="tender-desc">Safe city surveillance, traffic enforcement and road safety systems deployed across Chennai under the Smart City Mission. Live, operational, government-audited.</p>
+          <span class="tender-value">Smart City Mission · Government of India</span>
+        </div>
+      </div>
+
+      <!-- Puducherry -->
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85&fit=crop" alt="Puducherry Union Territory" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">India · Puducherry Union Territory</div>
+          <span class="tender-status live">Live</span>
+          <div class="tender-title">Union Territory Command &amp; Surveillance System</div>
+          <p class="tender-punch">"Full territory coverage — delivered on time, on scope."</p>
+          <p class="tender-desc">Safe city and integrated command system for Puducherry Union Territory. Full surveillance, incident management and road safety — live under UT administration.</p>
+          <span class="tender-value">Puducherry Smart City · Union Territory Administration</span>
+        </div>
+      </div>
+
+      <!-- Indian Ports Association -->
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=600&q=85&fit=crop" alt="Indian Ports Association" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">India · Major Ports · Government of India</div>
+          <span class="tender-status live">Live</span>
+          <div class="tender-title">Indian Ports Association — Enterprise Systems</div>
+          <p class="tender-punch">"National-scale port enterprise systems — live across 6 major ports."</p>
+          <p class="tender-desc">Enterprise business systems across six of India's major ports through Indian Ports Association. Port operations, process automation and digital integration — joint delivery with global technology partner.</p>
+          <span class="tender-value">Ministry of Ports · Government of India</span>
+        </div>
+      </div>
+
+      <!-- Indian Army -->
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=600&q=85&fit=crop" alt="Indian Army Perimeter Security" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">India · Defence · Sovereign</div>
+          <span class="tender-status live">Live</span>
+          <div class="tender-title">Indian Army — Perimeter Security Infrastructure</div>
+          <p class="tender-punch">"When security cannot fail, trust cannot be assumed."</p>
+          <p class="tender-desc">Mission-critical perimeter security for the Indian Army — scanners, surveillance and integrated security equipment engineered to defence-grade standards. Zero tolerance for failure. Operational and compliant.</p>
+          <span class="tender-value">Ministry of Defence · Indian Army</span>
+        </div>
+      </div>
+
+      <!-- Central Bank AI - Africa -->
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=85&fit=crop" alt="Central Bank AI Decision Support" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">Africa · Central Bank · Sovereign</div>
+          <span class="tender-status pipeline">Pipeline · Active</span>
+          <span class="tender-status intl" style="margin-left:0.5rem;">International</span>
+          <div class="tender-title">Central Bank AI-Powered Decision Support System</div>
+          <p class="tender-punch">"Ranked #1 in evaluation for AI-powered regulatory intelligence."</p>
+          <p class="tender-desc">Top-evaluated vendor for a sovereign African central bank's AI-powered decision support system — NLP, OCR and advanced analytics on Azure. Suptech engineering at sovereign scale. Final award stage.</p>
+          <span class="tender-value">Estimated Value: Undisclosed · Azure Suptech Platform</span>
+        </div>
+      </div>
+
+      <div class="tender-card">
+        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=85&fit=crop" alt="Americas Government Technology" class="tender-card-img">
+        <div class="tender-card-body">
+          <div class="tender-geo">Americas · Enterprise · Government Technology</div>
+          <span class="tender-status live">Active</span>
+          <span class="tender-status intl" style="margin-left:0.5rem;">International</span>
+          <div class="tender-title">Government &amp; Enterprise Technology Engagements — Americas</div>
+          <p class="tender-punch">"Institutional performance engineering has no geographic boundary."</p>
+          <p class="tender-desc">Captiv's delivery footprint now extends to the Americas — supporting government and enterprise technology engagements through direct and partner-led models. SonicLynk's governance and smart city capabilities are being positioned for North and Latin American sovereign procurement cycles.</p>
+          <span class="tender-value">Americas Region · Active Engagement Pipeline</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERNATIONAL TENDERING EXPERIENCE -->
+<section class="intl-sec sec">
+  <div class="sec-inner">
+    <div class="intl-grid">
+      <div>
+        <div class="sec-kicker">International tendering experience</div>
+        <h2 class="sec-heading">Sovereign procurement<br><em>across four continents.</em></h2>
+        <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.9;margin-top:1.5rem;">Government procurement is not a sales process. It is a credibility test. Captiv has navigated sovereign procurement processes across India, the Middle East, Africa and the Americas — winning on technical merit, delivery track record and the BOOT model that makes risk a non-issue for ministries.</p>
+        <p style="font-size:0.88rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;">We understand that every tender is different. RFP documentation, technical compliance matrices, pre-qualification requirements, demo environments, site visits and ministry briefings — Captiv's team has experience navigating every stage of sovereign procurement in every geography we operate in.</p>
+        <div style="margin-top:2.5rem;padding:2rem;background:var(--teal-xlight);border-left:3px solid var(--teal);">
+          <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;">BOOT Model — Our Procurement Advantage</div>
+          <p style="font-size:0.88rem;font-weight:400;color:var(--navy);line-height:1.8;">Most governments reject technology because of capital expenditure constraints. SonicLynk's BOOT delivery model eliminates this barrier entirely. Captiv funds, builds, owns and operates — the ministry pays from operational revenues or receives the system as a public asset at transfer. Zero capex. Full accountability.</p>
+        </div>
+      </div>
+      <div class="intl-right">
+        <div class="intl-item">
+          <div class="intl-flag">🇮🇳</div>
+          <div>
+            <div class="intl-country">India · Central Government</div>
+            <div class="intl-title">Ministry of Ports — Indian Ports Association</div>
+            <p class="intl-desc">Navigated central government procurement for enterprise systems across six major ports. Joint delivery model with global partner. Smart City Mission procurement for Chennai and Puducherry.</p>
+            <span class="intl-tag">Awarded · Live</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🇴🇲</div>
+          <div>
+            <div class="intl-country">Oman · Ministry of Transport &amp; IT</div>
+            <div class="intl-title">MTCIT — National Port Community System</div>
+            <p class="intl-desc">Won sovereign procurement against international competition on BOOT model. Full RFP response, technical demo, site visits and ministerial briefings completed. System now live and operational across all border ports.</p>
+            <span class="intl-tag">Awarded · Delivered · BOOT</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🌍</div>
+          <div>
+            <div class="intl-country">Africa · Sovereign Central Bank</div>
+            <div class="intl-title">Central Bank AI Decision Support — Suptech</div>
+            <p class="intl-desc">Top-ranked in international vendor evaluation for sovereign AI intelligence platform. Competed against global Tier-1 vendors on technical architecture, data sovereignty and delivery methodology.</p>
+            <span class="intl-tag">Pipeline · Pre-Award</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🇦🇪</div>
+          <div>
+            <div class="intl-country">UAE · Global Technology Sector</div>
+            <div class="intl-title">GPU Cloud Infrastructure — SaaS Leader</div>
+            <p class="intl-desc">Procurement and delivery of high-availability GPU cloud infrastructure in UAE for a global SaaS company's AI product workloads. Multi-AZ, compliance-grade, performance-optimised.</p>
+            <span class="intl-tag">Awarded · Live</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🌐</div>
+          <div>
+            <div class="intl-country">Global · White-Label Expansion</div>
+            <div class="intl-title">Port Community System — 5-Country Framework</div>
+            <p class="intl-desc">Framework agreement for international white-label deployment of the National Port Community System to five additional sovereign clients. Active pipeline discussions with governments in East Africa, Southeast Asia and West Africa.</p>
+            <span class="intl-tag">Active Pipeline · 5 Geographies</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🇮🇳</div>
+          <div>
+            <div class="intl-country">India · Ministry of Defence</div>
+            <div class="intl-title">Indian Army — Perimeter Security</div>
+            <p class="intl-desc">Defence procurement compliance, security clearances and technical acceptance testing for perimeter security infrastructure. Delivered to defence-grade specifications with zero variance from scope.</p>
+            <span class="intl-tag">Awarded · Live · Defence Grade</span>
+          </div>
+        </div>
+        <div class="intl-item">
+          <div class="intl-flag">🌎</div>
+          <div>
+            <div class="intl-country">Americas · Government &amp; Enterprise</div>
+            <div class="intl-title">Americas Region — Sovereign &amp; Enterprise Engagements</div>
+            <p class="intl-desc">Captiv's governance and smart city capabilities are actively being positioned across North and Latin American government procurement cycles. Partner-led and direct engagement models operational. SonicLynk's BOOT model translates directly to Americas public sector procurement structures.</p>
+            <span class="intl-tag">Active Pipeline · Americas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAIC IMAGE SECTION -->
+<div class="img-mosaic-sec">
+  <div class="img-mosaic">
+    <div class="img-tall">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85&fit=crop" alt="Government operations centre">
+      <div class="img-mosaic-label">Command &amp; Control · Live Operations</div>
+    </div>
+    <div class="img-small">
+      <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=700&q=85&fit=crop" alt="Smart city infrastructure">
+      <div class="img-mosaic-label">Smart City · India</div>
+    </div>
+    <div class="img-small">
+      <img src="https://images.unsplash.com/photo-1577587230708-187fdbef4d91?w=700&q=85&fit=crop" alt="Port operations">
+      <div class="img-mosaic-label">Port Community System · Oman</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW WE WORK -->
+<section class="how-sec sec">
+  <div class="sec-inner">
+    <div class="sec-kicker">How SonicLynk is delivered</div>
+    <h2 class="sec-heading">Built to own.<br><em>Designed to last.</em></h2>
+    <p style="font-size:0.95rem;font-weight:300;color:var(--text-secondary);line-height:1.85;margin-top:1.25rem;max-width:600px;">SonicLynk engagements follow a sovereign delivery model — from RFP through design, build, commissioning and long-term operations. We don't exit at go-live.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-n">01</div>
+        <div class="how-step-title">Diagnose &amp; <em>scope</em></div>
+        <p class="how-step-desc">Deep operational assessment of governance gaps, security vulnerabilities and system disconnects. We understand the political and operational context before recommending anything.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-n">02</div>
+        <div class="how-step-title">Architect &amp; <em>propose</em></div>
+        <p class="how-step-desc">Full system architecture designed to sovereign specifications. BOOT model financial structure prepared. RFP response and technical documentation developed — ready for procurement submission.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-n">03</div>
+        <div class="how-step-title">Build &amp; <em>commission</em></div>
+        <p class="how-step-desc">System engineering, hardware procurement, software development, integration and commissioning. Site acceptance testing, security audits and government sign-off. Delivered to specification — not scope-creep.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-n">04</div>
+        <div class="how-step-title">Operate &amp; <em>improve</em></div>
+        <p class="how-step-desc">Captiv operates the system post-go-live under SLA. Monitoring, incident response, optimisation and capability expansion — continuous improvement with accountability backed by the same team that built it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECOND IMAGE BREAK -->
+<div class="imgbreak2">
+  <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=1600&q=85&fit=crop" alt="Defence security infrastructure India">
+  <div class="imgbreak2-overlay"></div>
+  <div class="imgbreak2-content">
+    <span class="imgbreak2-kicker">India · Ministry of Defence · Indian Army</span>
+    <h2 class="imgbreak2-headline">Perimeter security<br><em>with zero tolerance.</em></h2>
+    <p class="imgbreak2-sub">Mission-critical defence perimeter infrastructure — scanners, integrated surveillance, and access control systems engineered to defence-grade specifications for the Indian Army. When the client has zero tolerance for failure, every component of the system must be designed to that standard from the first line of architecture.</p>
+  </div>
+</div>
+
+<!-- SECTORS -->
+<section class="sectors-sec sec">
+  <div class="sectors-bg"></div>
+  <div class="sectors-inner">
+    <div class="sec-kicker">Who we serve</div>
+    <h2 class="sec-heading">Every institution that<br><em>governs at scale.</em></h2>
+    <p class="sectors-sub">SonicLynk operates at the intersection of government, security and public infrastructure — the highest-accountability environments in any economy.</p>
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <div class="sector-icon">🏛</div>
+        <div class="sector-name">Central Government</div>
+        <p class="sector-desc">Ministries, departments and central agencies requiring national-scale systems with sovereign data governance. Smart City Mission, port authorities, defence procurement.</p>
+        <div class="sector-stat">India · Middle East · Africa · Americas</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🌆</div>
+        <div class="sector-name">Smart &amp; Safe Cities</div>
+        <p class="sector-desc">Municipal corporations and smart city SPVs deploying integrated surveillance, traffic management, citizen services and urban command systems under national mandates.</p>
+        <div class="sector-stat">Chennai · Puducherry · Bengaluru pipeline</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">⚓</div>
+        <div class="sector-name">Port &amp; Border Authorities</div>
+        <p class="sector-desc">National port authorities, customs administrations and border management agencies requiring integrated community systems across all modes of entry — sea, air and land.</p>
+        <div class="sector-stat">India · Oman · East Africa pipeline</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🛡</div>
+        <div class="sector-name">Defence &amp; Security Forces</div>
+        <p class="sector-desc">Defence establishments, paramilitary forces and national security agencies requiring mission-critical perimeter security, surveillance and intelligence infrastructure.</p>
+        <div class="sector-stat">Indian Army · Law Enforcement</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏦</div>
+        <div class="sector-name">Central Banks &amp; Regulators</div>
+        <p class="sector-desc">Monetary authorities and financial regulators requiring AI-powered supervisory technology — NLP-based document intelligence, regulatory compliance analytics and decision support systems.</p>
+        <div class="sector-stat">Africa · Middle East pipeline</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏫</div>
+        <div class="sector-name">Premier Institutions</div>
+        <p class="sector-desc">National education and research institutions requiring intelligent access control, visitor management and campus security systems integrated with institutional governance frameworks.</p>
+        <div class="sector-stat">IIT Madras · NIT Calicut</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <span class="cta-kicker">Start the conversation</span>
+    <h2 class="cta-heading">Governance that<br><em>cannot be circumvented.</em></h2>
+    <p class="cta-sub">Whether you are a ministry planning a sovereign system, a municipality tendering for smart city infrastructure, or a port authority that needs an integrated community platform — we have built it, won it and delivered it. Tell us where the governance gap is.</p>
+    <a href="contact.html" class="btn-white">Speak to Our Team</a>
+    <a href="work.html" class="btn-border">See Our Delivered Work</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="data:image/png;base64,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" alt="Captiv — Excellence. Delivered." style="height:42px;width:auto;display:block;margin-bottom:1.25rem;">
+      <p class="footer-desc">Captiv Techno Solutions Pvt Ltd is an institutional performance engineering company that builds and operates the systems governments, banks and enterprises depend on — across India, Africa, the Middle East and the Americas.</p>
+      <div class="footer-tag">Excellence. Delivered.</div>
+    </div>
+    <div class="footer-col"><h4>Engines</h4><ul>
+      <li><a href="skyverse.html">SkyVerse</a></li>
+      <li><a href="aion.html">AION</a></li>
+      <li><a href="optima360.html">Optima 360</a></li>
+      <li><a href="soniclynk.html">SonicLynk</a></li>
+      <li><a href="qlens.html">QLens</a></li>
+      <li><a href="proaug.html">ProAug</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="about.html">About Captiv</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Industries</h4><ul>
+      <li><a href="industries-government.html">Government &amp; Smart City</a></li>
+      <li><a href="industries-banking.html">Banking &amp; Fintech</a></li>
+      <li><a href="industries-enterprise.html">Manufacturing &amp; Enterprise</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Captiv Techno Solutions Pvt Ltd &nbsp;·&nbsp; India &nbsp;·&nbsp; Africa &nbsp;·&nbsp; Middle East &nbsp;·&nbsp; Americas &nbsp;·&nbsp; Singapore</p>
+    <p>Excellence. Delivered.</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){var n=document.getElementById('navLinks'),h=document.getElementById('hamburger');n.classList.toggle('open');h.classList.toggle('active');}
+document.getElementById('hamburger').addEventListener('click',toggleNav);
+// Scroll reveal
+(function(){
+  var els=document.querySelectorAll('.reveal,.what-card,.srv-card,.tender-card,.intl-item,.sector-card,.how-step,.insight-cell,.prob-item');
+  els.forEach(function(el,i){el.classList.add('reveal');var siblings=Array.from(el.parentElement.children);var idx=siblings.indexOf(el);el.style.transitionDelay=Math.min(idx*0.07,0.38)+'s';});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.07,rootMargin:'0px 0px -32px 0px'});
+  els.forEach(function(el){obs.observe(el);});
+  // Nav scroll
+  window.addEventListener('scroll',function(){var nav=document.getElementById('mainNav');if(window.scrollY>50)nav.style.boxShadow='0 2px 32px rgba(0,0,0,0.12)';else nav.style.boxShadow='0 2px 16px rgba(0,0,0,0.05)';},{passive:true});
+})();
+</script>
+</body>
+</html>'''
